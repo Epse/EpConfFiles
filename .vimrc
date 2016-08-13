@@ -46,6 +46,10 @@ Plugin 'fatih/vim-go'
 "Plugin 'Shougo/neocomplete.vim'
 Plugin 'xolox/vim-shell'
 Plugin 'majutsushi/tagbar'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'nissassin17/vim-close-pair'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,7 +61,7 @@ syntax on
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -90,7 +94,7 @@ endif
 set number
 set linebreak
 set showbreak=+++
-set textwidth=100
+" set textwidth=100
 set visualbell
 set hlsearch
 set autoindent
@@ -106,7 +110,6 @@ set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 set joinspaces
 set linespace=0
 set wildmenu
-set wildmode=list:longest,full
 set scrolljump=5
 set scrolloff=3
 set nobackup
@@ -117,7 +120,8 @@ set cursorline
 set fileformat=unix
 set fileformats=unix,dos,mac
 set nowrap
-set colorcolumn=80
+"set colorcolumn=80
+" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
 
 " File types
 autocmd BufRead,BufNewFile *httpd*.conf setfiletype apache "Apache config files
