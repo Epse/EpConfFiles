@@ -156,4 +156,6 @@ macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
 source ~/.mutt/splet.telenet
 
 color normal default default
-auto_view text/html
+set implicit_autoview
+auto_view text/html  application/x-pgp-message
+set mailcap_path="~/.mailcap"
