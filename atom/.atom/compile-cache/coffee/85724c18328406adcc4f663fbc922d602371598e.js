@@ -1,0 +1,236 @@
+(function() {
+  var Point, PythonTools, Range, _ref;
+
+  PythonTools = require('../lib/python-tools');
+
+  _ref = require('atom'), Point = _ref.Point, Range = _ref.Range;
+
+  describe("PythonTools", function() {
+    var pythonTools;
+    pythonTools = null;
+    beforeEach(function() {
+      waitsForPromise(function() {
+        return atom.packages.activatePackage('python-tools');
+      });
+      waitsForPromise(function() {
+        return atom.packages.activatePackage('language-python');
+      });
+      return runs(function() {
+        return pythonTools = atom.packages.getActivePackage('python-tools').mainModule;
+      });
+    });
+    describe("when running jedi commands", function() {
+      var editor;
+      editor = null;
+      beforeEach(function() {
+        waitsForPromise(function() {
+          return atom.workspace.open('test.py');
+        });
+        return runs(function() {
+          editor = atom.workspace.getActiveTextEditor();
+          return editor.setText("import json");
+        });
+      });
+      return it("does not send too many commands over time", function() {
+        editor.setCursorBufferPosition(new Point(0, 9));
+        spyOn(pythonTools, 'handleJediToolsResponse');
+        waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef');
+        });
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef').then(function() {
+            return expect(pythonTools.handleJediToolsResponse.calls.length).toEqual(2);
+          });
+        });
+      });
+    });
+    describe("when running the goto definitions command", function() {
+      var editor;
+      editor = null;
+      beforeEach(function() {
+        waitsForPromise(function() {
+          return atom.workspace.open('mike.py');
+        });
+        return runs(function() {
+          editor = atom.workspace.getActiveTextEditor();
+          return editor.setText("import json\n\nclass Snake(object):\n    def slither(self, dict):\n        return json.dumps(dict)\n\nsnake = Snake()\nsnake.slither({'x': 10, 'y': 20})\n\ni_dont_exist()");
+        });
+      });
+      it("moves to the correct class location", function() {
+        editor.setCursorBufferPosition(new Point(6, 9));
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef').then(function() {
+            return expect(editor.getCursorBufferPosition()).toEqual(new Point(3, 6));
+          });
+        });
+      });
+      it("moves to the correct method location", function() {
+        editor.setCursorBufferPosition(new Point(7, 7));
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef').then(function() {
+            return expect(editor.getCursorBufferPosition()).toEqual(new Point(4, 8));
+          });
+        });
+      });
+      it("does nothing if symbol does not exist", function() {
+        editor.setCursorBufferPosition(new Point(9, 7));
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef').then(function() {
+            return expect(editor.getCursorBufferPosition()).toEqual(new Point(9, 7));
+          });
+        });
+      });
+      return it("opens appropriate file if required", function() {
+        editor.setCursorBufferPosition(new Point(0, 9));
+        spyOn(atom.workspace, 'open').andCallThrough();
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('gotoDef').then(function() {
+            var path;
+            path = atom.workspace.open.mostRecentCall.args[0];
+            if (/^win/.test(process.platform)) {
+              return expect(path).toMatch(/.*\\json\\__init__.py/);
+            } else {
+              return expect(path).toMatch(/.*\/json\/__init__.py/);
+            }
+          });
+        });
+      });
+    });
+    describe("when tools.py gets an invalid request", function() {
+      var editor;
+      editor = null;
+      return beforeEach(function() {
+        waitsForPromise(function() {
+          return atom.workspace.open('error.py');
+        });
+        return runs(function() {
+          return editor = atom.workspace.getActiveTextEditor();
+        });
+      });
+    });
+    describe("when running the show usages command", function() {
+      var editor;
+      editor = null;
+      beforeEach(function() {
+        waitsForPromise(function() {
+          return atom.workspace.open('foo.py');
+        });
+        return runs(function() {
+          editor = atom.workspace.getActiveTextEditor();
+          return editor.setText("def my_function(a, b):\n    return a + b\n\nprint my_function(10, 20)");
+        });
+      });
+      it("selects the correct symbols", function() {
+        editor.setCursorBufferPosition(new Point(3, 8));
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('usages').then(function() {
+            return expect(editor.getSelectedBufferRanges()).toEqual([new Range(new Point(0, 4), new Point(0, 15)), new Range(new Point(3, 6), new Point(3, 17))]);
+          });
+        });
+      });
+      return it("doesn't alter current selection on no results", function() {
+        editor.setCursorBufferPosition(new Point(3, 2));
+        return waitsForPromise(function() {
+          return pythonTools.jediToolsRequest('usages').then(function() {
+            return expect(editor.getSelectedBufferRanges()).toEqual([new Range(new Point(3, 2), new Point(3, 2))]);
+          });
+        });
+      });
+    });
+    describe("when running the select string command", function() {
+      var editor;
+      editor = null;
+      beforeEach(function() {
+        waitsForPromise(function() {
+          return atom.workspace.open('lolcat.py');
+        });
+        return runs(function() {
+          editor = atom.workspace.getActiveTextEditor();
+          return editor.setText("class Lolcat(object):\n  mystring = 'hello world'\n  anotherstring = \"this is some text\"\n  block_text = \"\"\"\n  This was a triumph!\n  I'm making a note here:\n  Huge success!\n  \"\"\"\n  more_blocks = '''\n  This is some text\n  '''\n  sql_text = \"\"\"SELECT *\n  FROM foo\n  \"\"\"\n  sql_text2 = '''SELECT *\n  FROM bar\n  '''");
+        });
+      });
+      it("selects single-line single qoutes correctly", function() {
+        editor.setCursorBufferPosition(new Point(1, 17));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(1, 14), new Point(1, 25)));
+      });
+      it("selects single-line double qoutes correctly", function() {
+        editor.setCursorBufferPosition(new Point(2, 25));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(2, 19), new Point(2, 36)));
+      });
+      it("selects block string double qoutes correctly", function() {
+        atom.config.set('python-tools.smartBlockSelection', false);
+        editor.setCursorBufferPosition(new Point(4, 15));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(3, 18), new Point(7, 2)));
+      });
+      it("smart selects double qoutes correctly", function() {
+        editor.setCursorBufferPosition(new Point(4, 15));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRanges()).toEqual([new Range(new Point(4, 2), new Point(4, 21)), new Range(new Point(5, 2), new Point(5, 25)), new Range(new Point(6, 2), new Point(6, 15))]);
+      });
+      it("selects block string single qoutes correctly", function() {
+        atom.config.set('python-tools.smartBlockSelection', false);
+        editor.setCursorBufferPosition(new Point(9, 15));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(8, 19), new Point(10, 2)));
+      });
+      it("smart selects single qoutes correctly", function() {
+        editor.setCursorBufferPosition(new Point(9, 15));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRanges()).toEqual([new Range(new Point(9, 2), new Point(9, 19))]);
+      });
+      it("it selects block SQL double qoutes correctly", function() {
+        atom.config.set('python-tools.smartBlockSelection', false);
+        editor.setCursorBufferPosition(new Point(12, 20));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(11, 16), new Point(13, 2)));
+      });
+      return it("it selects block SQL single qoutes correctly", function() {
+        atom.config.set('python-tools.smartBlockSelection', false);
+        editor.setCursorBufferPosition(new Point(14, 20));
+        pythonTools.selectAllString();
+        return expect(editor.getSelectedBufferRange()).toEqual(new Range(new Point(14, 17), new Point(16, 2)));
+      });
+    });
+    return describe("when a response is returned from tools.py", function() {
+      it("informs the user with an info notification when no items were found", function() {
+        var notification;
+        pythonTools.handleJediToolsResponse({
+          type: "usages",
+          definitions: []
+        });
+        notification = atom.notifications.getNotifications()[0];
+        return expect(notification.type).toBe('info');
+      });
+      it("informs the user with an error notification on error", function() {
+        var notification;
+        pythonTools.handleJediToolsResponse({
+          "error": "this is a test error"
+        });
+        notification = atom.notifications.getNotifications()[0];
+        return expect(notification.type).toBe('error');
+      });
+      return it("informs the user with an error notification on invalid type", function() {
+        var notification;
+        pythonTools.handleJediToolsResponse({
+          type: "monkeys",
+          definitions: [
+            {
+              line: 0,
+              column: 0
+            }
+          ]
+        });
+        notification = atom.notifications.getNotifications()[0];
+        return expect(notification.type).toBe('error');
+      });
+    });
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL2hvbWUvZXBzZS8uYXRvbS9wYWNrYWdlcy9weXRob24tdG9vbHMvc3BlYy9weXRob24tdG9vbHMtc3BlYy5jb2ZmZWUiCiAgXSwKICAibmFtZXMiOiBbXSwKICAibWFwcGluZ3MiOiAiQUFBQTtBQUFBLE1BQUEsK0JBQUE7O0FBQUEsRUFBQSxXQUFBLEdBQWMsT0FBQSxDQUFRLHFCQUFSLENBQWQsQ0FBQTs7QUFBQSxFQUNBLE9BQWlCLE9BQUEsQ0FBUSxNQUFSLENBQWpCLEVBQUMsYUFBQSxLQUFELEVBQVEsYUFBQSxLQURSLENBQUE7O0FBQUEsRUFHQSxRQUFBLENBQVMsYUFBVCxFQUF3QixTQUFBLEdBQUE7QUFDdEIsUUFBQSxXQUFBO0FBQUEsSUFBQSxXQUFBLEdBQWMsSUFBZCxDQUFBO0FBQUEsSUFDQSxVQUFBLENBQVcsU0FBQSxHQUFBO0FBQ1QsTUFBQSxlQUFBLENBQWdCLFNBQUEsR0FBQTtlQUNkLElBQUksQ0FBQyxRQUFRLENBQUMsZUFBZCxDQUE4QixjQUE5QixFQURjO01BQUEsQ0FBaEIsQ0FBQSxDQUFBO0FBQUEsTUFFQSxlQUFBLENBQWdCLFNBQUEsR0FBQTtlQUNkLElBQUksQ0FBQyxRQUFRLENBQUMsZUFBZCxDQUE4QixpQkFBOUIsRUFEYztNQUFBLENBQWhCLENBRkEsQ0FBQTthQUlBLElBQUEsQ0FBSyxTQUFBLEdBQUE7ZUFDSCxXQUFBLEdBQWMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxnQkFBZCxDQUErQixjQUEvQixDQUE4QyxDQUFDLFdBRDFEO01BQUEsQ0FBTCxFQUxTO0lBQUEsQ0FBWCxDQURBLENBQUE7QUFBQSxJQVNBLFFBQUEsQ0FBUyw0QkFBVCxFQUF1QyxTQUFBLEdBQUE7QUFDckMsVUFBQSxNQUFBO0FBQUEsTUFBQSxNQUFBLEdBQVMsSUFBVCxDQUFBO0FBQUEsTUFDQSxVQUFBLENBQVcsU0FBQSxHQUFBO0FBQ1QsUUFBQSxlQUFBLENB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
+
+//# sourceURL=/home/epse/.atom/packages/python-tools/spec/python-tools-spec.coffee

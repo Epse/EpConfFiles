@@ -1,0 +1,33 @@
+(function() {
+  module.exports = {
+    query: function(el) {
+      return document.querySelector(el);
+    },
+    queryAll: function(el) {
+      return document.querySelectorAll(el);
+    },
+    addClass: function(el, className) {
+      return this.toggleClass('add', el, className);
+    },
+    removeClass: function(el, className) {
+      return this.toggleClass('remove', el, className);
+    },
+    toggleClass: function(action, el, className) {
+      var i, _results;
+      if (el !== null) {
+        i = 0;
+        _results = [];
+        while (i < el.length) {
+          el[i].classList[action](className);
+          _results.push(i++);
+        }
+        return _results;
+      }
+    }
+  };
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL2hvbWUvZXBzZS8uYXRvbS9wYWNrYWdlcy9zZXRpLXN5bnRheC9saWIvZG9tLmNvZmZlZSIKICBdLAogICJuYW1lcyI6IFtdLAogICJtYXBwaW5ncyI6ICJBQUFBO0FBQUEsRUFBQSxNQUFNLENBQUMsT0FBUCxHQUNFO0FBQUEsSUFBQSxLQUFBLEVBQU8sU0FBQyxFQUFELEdBQUE7YUFDTCxRQUFRLENBQUMsYUFBVCxDQUF1QixFQUF2QixFQURLO0lBQUEsQ0FBUDtBQUFBLElBR0EsUUFBQSxFQUFVLFNBQUMsRUFBRCxHQUFBO2FBQ1IsUUFBUSxDQUFDLGdCQUFULENBQTBCLEVBQTFCLEVBRFE7SUFBQSxDQUhWO0FBQUEsSUFNQSxRQUFBLEVBQVUsU0FBQyxFQUFELEVBQUssU0FBTCxHQUFBO2FBQ1IsSUFBQyxDQUFBLFdBQUQsQ0FBYSxLQUFiLEVBQW9CLEVBQXBCLEVBQXdCLFNBQXhCLEVBRFE7SUFBQSxDQU5WO0FBQUEsSUFTQSxXQUFBLEVBQWEsU0FBQyxFQUFELEVBQUssU0FBTCxHQUFBO2FBQ1gsSUFBQyxDQUFBLFdBQUQsQ0FBYSxRQUFiLEVBQXVCLEVBQXZCLEVBQTJCLFNBQTNCLEVBRFc7SUFBQSxDQVRiO0FBQUEsSUFZQSxXQUFBLEVBQWEsU0FBQyxNQUFELEVBQVMsRUFBVCxFQUFhLFNBQWIsR0FBQTtBQUNYLFVBQUEsV0FBQTtBQUFBLE1BQUEsSUFBRyxFQUFBLEtBQU0sSUFBVDtBQUNFLFFBQUEsQ0FBQSxHQUFJLENBQUosQ0FBQTtBQUNBO2VBQU0sQ0FBQSxHQUFJLEVBQUUsQ0FBQyxNQUFiLEdBQUE7QUFDRSxVQUFBLEVBQUcsQ0FBQSxDQUFBLENBQUUsQ0FBQyxTQUFVLENBQUEsTUFBQSxDQUFoQixDQUF3QixTQUF4QixDQUFBLENBQUE7QUFBQSx3QkFDQSxDQUFBLEdBREEsQ0FERjtRQUFBLENBQUE7d0JBRkY7T0FEVztJQUFBLENBWmI7R0FERixDQUFBO0FBQUEiCn0=
+
+//# sourceURL=/home/epse/.atom/packages/seti-syntax/lib/dom.coffee

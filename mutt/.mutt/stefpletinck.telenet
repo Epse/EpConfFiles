@@ -1,0 +1,26 @@
+my_hdr From: stefpletinck@telenet.be (Stef Pletinck)
+my_hdr Reply-To: splet@telenet.be (Stef Pletinck)
+my_hdr Errors-To: splet@telenet.be
+my_hdr Organization: OSS supporter!
+
+######################################################
+### iMap
+#####################################################
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set imap_user="stefpletinck@telenet.be"
+set imap_pass="lena-mari0-Robot"
+set folder	= "imaps://imap.telenet.be:993"
+set spoolfile	    ="imaps://imap.telenet.be:993"
+set smtp_url="smtp://stefpletinck@telenet.be:lena-mari0-Robot@smtp.telenet.be:587"
+set smtp_pass="lena-mari0-Robot"
+set from="stefpletinck@telenet.be"
+set realname="Stef Pletinck"
+set header_cache    = "~/.mutt/cache/headers"
+set message_cachedir	= "~/.mutt/cache/"
+set certificate_file	= "~/.mutt/certificates"
+set record="=Sent"
+set postponed="=Drafts"
+unset imap_passive
+set imap_keepalive  = 300
+set mail_check	    = 120
