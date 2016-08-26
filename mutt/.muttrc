@@ -154,3 +154,6 @@ macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
 
 # switch to default account on startup
 source ~/.mutt/splet.telenet
+
+color normal default default
+auto_view text/html

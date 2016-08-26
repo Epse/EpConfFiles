@@ -74,4 +74,14 @@ URxvt.color19:      base02
 *.color20:      base04
 *.color21:      base06
 
-URxvt.font: xft:Source Code Pro:size=9
+URxvt.transparent:   true
+URxvt.tintColor:     white
+URxvt.shading:       30
+
+URxvt.font: xft:Knack Nerd Font:size=9
+URxvt.letterSpace:0
+
+URxvt.internalBorder:      10
+URxvt.externalBorder:      0
+URxvt.scrollBar: false
+Urxvt.urlLauncher: /usr/bin/firefox

@@ -2,12 +2,17 @@
 export ZSH=/home/epse/.oh-my-zsh
 export GOPATH=/home/epse/Documents/Programming/Go
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="wedisagree"
+plugins=(
+#    vi-mode
+    clipboard
+#    gpg
+    fuck
+    zsh-syntax-highlighting
+)
 
+source <(cat $ZSH/custom/functions/**/*.zsh)
+source $ZSH/custom/sourcer.zsh
+ZSH_THEME="epsedisagrees"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -62,12 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR=vim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,3 +92,4 @@ alias sagp='sudo apt-get purge'
 alias -g dbx='~/Dropbox'
 alias -g fndin='| grep -i '
 alias -g fndsn='| grep  '
+alias e=$EDITOR
