@@ -58,6 +58,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'skammer/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'nvie/vim-flake8'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -108,7 +110,8 @@ set hlsearch
 set autoindent
 set shiftwidth=4
 set smartindent
-set smarttab
+set expandtab
+set tabstop=4
 set softtabstop=4
 set backspace=indent,eol,start
 set history=80

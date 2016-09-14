@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+count=`pacman -Qu | wc -l`
+result="$count Updates"
+echo $result

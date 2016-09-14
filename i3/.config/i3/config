@@ -136,6 +136,8 @@
   workspace $workspace10 output $monitor2
 
 # Program Workspace Assignments
+  assign [class="chromium"] $workspace1
+  assign [class="banshee"] $workspace10
   assign [class="firefox"] $workspace1
   assign [class="mutt"] $workspace8
   assign [class="Spotify"] $workspace10
@@ -154,7 +156,7 @@ smart_gaps on
   bar {
     font pango: Knack Nerd Font, FontAwesome 9
       position bottom
-      status_command i3blocks
+      status_command i3blocks -c ~/.config/i3/.i3blocks.conf
       colors {
         separator $base03
         background $base01
@@ -189,13 +191,16 @@ smart_gaps on
     --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 \
     --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
-  exec --no-startup-id compton -f
+  exec --no-startup-id compton -f --config ~/.config/i3/.compton.conf
+  exec --no-startup-id nohup chromium
   exec nm-applet
   exec autocutsel -fork &
   exec autocutsel -selection PRIMARY -fork &
+  exec --no-startup-id banshee &
 
 
 # Keyboard
   exec_always setxkbmap -option "ctrl:nocaps"
   exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   exec_always xcape -e 'Control_L=Escape'
+  #exec --no-startup-id "i3-msg 'workspace $workspace1'"
