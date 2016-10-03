@@ -78,10 +78,16 @@ URxvt.transparent:   true
 URxvt.tintColor:     white
 URxvt.shading:       30
 
-URxvt.font: xft:Knack Nerd Font:size=9
-URxvt.letterSpace:0
+URxvt.font: xft:Input Mono:size=9
+! URxvt.letterSpace:-5
+Xft.dpi:        100
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.autohint:  true
+Xft.hintstyle:  hintfull
 
-URxvt.internalBorder:      10
+URxvt.internalBorder:      6
 URxvt.externalBorder:      0
 URxvt.scrollBar: false
 Urxvt.urlLauncher: /usr/bin/firefox

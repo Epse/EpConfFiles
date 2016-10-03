@@ -197,6 +197,7 @@ smart_gaps on
   exec autocutsel -fork &
   exec autocutsel -selection PRIMARY -fork &
   exec --no-startup-id banshee &
+  exec --no-startup-id blueberry-tray &
 
 
 # Keyboard

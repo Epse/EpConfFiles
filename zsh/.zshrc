@@ -6,7 +6,7 @@ export GOPATH=/home/epse/Documents/Programming/Go
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/epse/.gem/ruby/2.3.0/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -38,3 +38,6 @@ alias -g dbx='~/Dropbox'
 alias -g fndin='| grep -i '
 alias -g fndsn='| grep  '
 alias e=$EDITOR
+alias x=exit
+
+eval $(ssh-agent)

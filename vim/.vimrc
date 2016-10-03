@@ -59,7 +59,7 @@ Plugin 'skammer/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'nvie/vim-flake8'
-
+Plugin 'tpope/vim-haml'
 
 call vundle#end()
 filetype plugin indent on
@@ -111,8 +111,8 @@ set autoindent
 set shiftwidth=4
 set smartindent
 set expandtab
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set backspace=indent,eol,start
 set history=80
 set ruler
@@ -174,4 +174,12 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 
 "abbr autocorrect
 abbr teh the
+:map <F7> :w !xclip<CR><CR>
+:vmap <F7> "*y
+:map <S-F7> :r!xclip -o<CR>"
 
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
