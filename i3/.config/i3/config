@@ -94,10 +94,10 @@
  set $workspace1 "1: Browser"
  set $workspace2 "2: Terminal"
  set $workspace3 "3: Develop"
- set $workspace4 "4: "
- set $workspace5 "5: "
- set $workspace6 "6: "
- set $workspace7 "7: "
+ set $workspace4 "4"
+ set $workspace5 "5"
+ set $workspace6 "6"
+ set $workspace7 "7"
  set $workspace8 "8: Email"
  set $workspace9 "9: Chat"
  set $workspace10 "10: Music"
@@ -154,7 +154,7 @@ smart_gaps on
 
 # i3 Status Bar
   bar {
-    font pango: Knack Nerd Font, FontAwesome 9
+    font pango: SauceCodePro Nerd Font 8
       position bottom
       status_command i3blocks -c ~/.config/i3/.i3blocks.conf
       colors {

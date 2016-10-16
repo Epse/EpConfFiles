@@ -39,5 +39,3 @@ alias -g fndin='| grep -i '
 alias -g fndsn='| grep  '
 alias e=$EDITOR
 alias x=exit
-
-eval $(ssh-agent)

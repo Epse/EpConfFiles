@@ -1,0 +1,150 @@
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:137:54: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:159:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:164:74: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:168:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:173:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:181:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:186:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:194:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:199:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:210:74: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:217:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:220:75: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1035:66: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1049:71: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1058:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1064:73: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1075:73: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1078:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1085:73: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1088:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1311:71: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1318:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1322:73: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1439:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1443:58: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1446:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1838:9: Not using units is deprecated. Assuming 'px'.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:1838:9: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2629:53: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2659:51: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2662:53: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2667:53: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2667:87: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2912:8: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:2912:17: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3184:54: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3497:71: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3504:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3507:73: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3515:52: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3587:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3595:71: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3599:54: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3610:54: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3803:8: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3803:20: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3823:54: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3834:8: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3834:22: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3837:8: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3837:28: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3840:8: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3840:22: Using Pango syntax for the font: style property is deprecated; please use CSS syntax
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3857:12: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3857:12: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3863:14: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3863:14: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3869:16: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3869:16: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3874:14: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3874:14: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3941:12: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3943:16: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3943:16: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3989:12: not a number
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3989:12: Expected a string.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3992:66: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:3999:66: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:4162:72: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:4169:56: Using one color stop with linear-gradient() is deprecated.
+
+(electron:1052): Gtk-WARNING **: Theme parsing error: gtk.css:4172:73: Using one color stop with linear-gradient() is deprecated.
+App load time: 13627ms
+
+(electron:1052): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
+
+(electron:1052): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
+
+(electron:1052): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
+Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
