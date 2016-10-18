@@ -198,6 +198,8 @@ smart_gaps on
   exec autocutsel -selection PRIMARY -fork &
   exec --no-startup-id banshee &
   exec --no-startup-id blueberry-tray &
+  exec "ssh-add ~/.ssh/id_ed25519 ~/.ssh/id_rsa"
+  exec --no-startup-id pasystray &
 
 
 # Keyboard

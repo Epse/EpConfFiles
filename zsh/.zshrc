@@ -13,6 +13,7 @@ export GOPATH=/home/epse/Documents/Programming/Go
 # export LANG=en_US.UTF-8
 
 export EDITOR=vim
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
