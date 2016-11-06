@@ -1,3 +1,61 @@
+## 1.19.0
+* Support for arbitrary ghc-mod options
+* Global configuration; ghcOptions config option
+* Don't spew warnings about missing .haskell-ghc-mod.json
+
+## 1.18.1
+* Show all candidates on empty prefix
+
+## 1.18.0
+* Include all qualifications in suggestions, i.e. fully qualified,
+    alias-qualified and unqualified (if applicable)
+* Include type constructors into suggestions (if applicable)
+* Show type constructors as types instead of functions
+* Use --numeric-version for ghc version
+
+## 1.17.2
+* Fix types containing "
+
+## 1.17.1
+* Update atom-haskell-utils
+
+## 1.17.0
+* More options for selection tooltips
+
+## 1.16.1
+* Object.observe is no longer supported
+
+## 1.16.0
+* Change onMouseHoverShow default to 'Type and Info'
+* More type/info tooltip options
+* Add sig-fill command
+* Fix caps display in error messages
+* Kill ghc-modi on InteractiveActionTimeout
+* Add special handler for interactive action timeout
+
+## 1.15.3
+* Make interactiveActionTimeout actually work
+
+## 1.15.2
+* Configurable timeouts
+
+## 1.15.1
+* Fix Promise.resolve
+
+## 1.15.0
+* Add .haskell-ghc-mod.json to readme
+* Add message on .haskell-ghc-mod.json parse error
+* Handle JSON.parse errors
+* .haskell-ghc-mod.json
+
+## 1.14.7
+* Add contributors to README
+* Merge pull request #162 from DeathByTape/master
+* Set maxBuffer to 'Infinity'.
+
+## 1.14.6
+* Use absolute paths in go-to-declaration
+
 ## 1.14.5
 * Add option for low-memory systems
 

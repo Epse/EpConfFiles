@@ -14,7 +14,7 @@ module.exports =
   selector: '.source.python'
   disableForSelector: '.source.python .comment, .source.python .string'
   inclusionPriority: 2
-  suggestionPriority: 3
+  suggestionPriority: atom.config.get('autocomplete-python.suggestionPriority')
   excludeLowerPriority: false
   cacheSize: 10
 
@@ -104,6 +104,8 @@ module.exports =
     @renameView = null
     @snippetsManager = null
 
+    log.debug "Init autocomplete-python with priority #{@suggestionPriority}"
+
     try
       @triggerCompletionRegex = RegExp atom.config.get(
         'autocomplete-python.triggerCompletionRegex')
@@ -167,7 +169,7 @@ module.exports =
 
     atom.workspace.observeTextEditors (editor) =>
       @_handleGrammarChangeEvent(editor, editor.getGrammar())
-      editor.displayBuffer.onDidChangeGrammar (grammar) =>
+      editor.onDidChangeGrammar (grammar) =>
         @_handleGrammarChangeEvent(editor, grammar)
 
     atom.config.onDidChange 'autocomplete-plus.enableAutoActivation', =>
@@ -253,7 +255,7 @@ module.exports =
 
   _handleGrammarChangeEvent: (editor, grammar) ->
     eventName = 'keyup'
-    eventId = "#{editor.displayBuffer.id}.#{eventName}"
+    eventId = "#{editor.id}.#{eventName}"
     if grammar.scopeName == 'source.python'
 
       if atom.config.get('autocomplete-python.showTooltips') is true

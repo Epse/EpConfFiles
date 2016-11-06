@@ -1,16 +1,63 @@
 {
-  "name": "linter-rust",
-  "main": "./lib/init",
-  "version": "0.4.6",
-  "description": "Lint Rust-files, using rustc and/or cargo",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AtomLinter/linter-rust.git"
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+        "spec": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-116925-13794-10bmtxd.g64awf80k9"
+    ]
+  ],
+  "_from": "../d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+  "_id": "linter-rust@0.6.0",
+  "_inCache": true,
+  "_location": "/linter-rust",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+    "spec": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+  "_shasum": "ea54c167bf5c225d304320c89daf38974375c403",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-116925-13794-tmmdjb.u7yuba9k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-116925-13794-10bmtxd.g64awf80k9",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-rust/issues"
+  },
+  "dependencies": {
+    "atom-package-deps": "^4.3.0",
+    "sb-exec": "^3.1.0",
+    "semver": "^5.3.0",
+    "xregexp": "~3.1.0"
+  },
+  "description": "Lint Rust-files, using rustc and/or cargo",
+  "devDependencies": {},
   "engines": {
     "atom": ">0.50.0"
   },
+  "homepage": "https://github.com/AtomLinter/linter-rust#readme",
+  "license": "MIT",
+  "main": "./lib/init",
+  "name": "linter-rust",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter",
+    "language-rust"
+  ],
   "providedServices": {
     "linter": {
       "versions": {
@@ -18,41 +65,65 @@
       }
     }
   },
-  "dependencies": {
-    "atom-package-deps": "^4.0.1",
-    "xregexp": "~3.1.0"
-  },
-  "package-deps": [
-    "linter",
-    "language-rust"
-  ],
   "readme": "# linter-rust [![Build Status](https://travis-ci.org/AtomLinter/linter-rust.svg?branch=master)](https://travis-ci.org/AtomLinter/linter-rust)\n\nLinting your Rust-files in [Atom](https://atom.io), using [rustc](http://www.rust-lang.org) and [cargo](https://crates.io).\nFiles will be checked when you open or save them.\n\n## Installation\n\n* Install [Rust](http://www.rust-lang.org) and/or [Cargo](https://crates.io).\n* `$ apm install linter` (if you don't have [AtomLinter/Linter](https://github.com/AtomLinter/Linter) installed).\n* `$ apm install linter-rust`\n\n## Other available linters\nThere are other linters available - take a look at the linters [mainpage](http://atomlinter.github.io).\n",
   "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/AtomLinter/linter-rust/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-rust.git"
   },
-  "homepage": "https://github.com/AtomLinter/linter-rust#readme",
-  "_id": "linter-rust@0.4.6",
-  "_shasum": "99393713e864b491e8a9ef1f15d90ef54c0cbc37",
-  "_resolved": "file:../d-116514-6035-ltd6pl/package.tgz",
-  "_from": "../d-116514-6035-ltd6pl/package.tgz",
+  "version": "0.6.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-package-deps",
-        "version": "4.0.1",
+        "version": "4.3.1",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
         "name": "atom-package-path",
         "version": "1.1.0",
-        "path": "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js"
+        "path": "node_modules/atom-package-path/lib/index.js"
+      },
+      {
+        "name": "consistent-env",
+        "version": "1.3.0",
+        "path": "node_modules/consistent-env/lib/index.js"
+      },
+      {
+        "name": "lodash.uniq",
+        "version": "4.5.0",
+        "path": "node_modules/lodash.uniq/index.js"
       },
       {
         "name": "sb-callsite",
         "version": "1.1.2",
-        "path": "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js"
+        "path": "node_modules/sb-callsite/lib/main.js"
+      },
+      {
+        "name": "sb-exec",
+        "version": "3.1.0",
+        "path": "node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "sb-memoize",
+        "version": "1.0.2",
+        "path": "node_modules/sb-memoize/lib/index.js"
+      },
+      {
+        "name": "sb-npm-path",
+        "version": "2.0.0",
+        "path": "node_modules/sb-npm-path/lib/index.js"
+      },
+      {
+        "name": "sb-promisify",
+        "version": "2.0.1",
+        "path": "node_modules/sb-promisify/lib/index.js"
+      },
+      {
+        "name": "semver",
+        "version": "5.3.0",
+        "path": "node_modules/semver/semver.js"
       },
       {
         "name": "xregexp",
@@ -65,12 +136,51 @@
         "lib/init.coffee",
         "lib/linter-rust.coffee"
       ],
+      ".json": [
+        "node_modules/atom-package-deps/.eslintrc.json",
+        "node_modules/atom-package-deps/package.json",
+        "node_modules/atom-package-path/package.json",
+        "node_modules/consistent-env/.eslintrc.json",
+        "node_modules/consistent-env/package.json",
+        "node_modules/lodash.uniq/package.json",
+        "node_modules/sb-callsite/package.json",
+        "node_modules/sb-exec/.eslintrc.json",
+        "node_modules/sb-exec/package.json",
+        "node_modules/sb-memoize/.eslintrc.json",
+        "node_modules/sb-memoize/package.json",
+        "node_modules/sb-npm-path/.eslintrc.json",
+        "node_modules/sb-npm-path/package.json",
+        "node_modules/sb-promisify/.eslintrc.json",
+        "node_modules/sb-promisify/package.json",
+        "node_modules/semver/package.json",
+        "node_modules/xregexp/package.json",
+        "package.json"
+      ],
       ".js": [
+        "node_modules/atom-package-deps/decls/atom.js",
+        "node_modules/atom-package-deps/decls/jasmine.js",
+        "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
-        "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
-        "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
+        "node_modules/atom-package-path/lib/index.js",
+        "node_modules/consistent-env/decls/jasmine.js",
+        "node_modules/consistent-env/lib/helpers.js",
+        "node_modules/consistent-env/lib/index.js",
+        "node_modules/lodash.uniq/index.js",
+        "node_modules/sb-callsite/lib/main.js",
+        "node_modules/sb-exec/decls/jasmine.js",
+        "node_modules/sb-exec/lib/helpers.js",
+        "node_modules/sb-exec/lib/index.js",
+        "node_modules/sb-exec/lib/types.js",
+        "node_modules/sb-memoize/lib/index.js",
+        "node_modules/sb-npm-path/decls/jasmine.js",
+        "node_modules/sb-npm-path/lib/helpers.js",
+        "node_modules/sb-npm-path/lib/index.js",
+        "node_modules/sb-promisify/decls/jasmine.js",
+        "node_modules/sb-promisify/lib/index.js",
+        "node_modules/semver/semver.js",
         "node_modules/xregexp/src/addons/build.js",
         "node_modules/xregexp/src/addons/matchrecursive.js",
         "node_modules/xregexp/src/addons/unicode-base.js",
@@ -80,13 +190,6 @@
         "node_modules/xregexp/src/addons/unicode-scripts.js",
         "node_modules/xregexp/src/index.js",
         "node_modules/xregexp/src/xregexp.js"
-      ],
-      ".json": [
-        "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/package.json",
-        "node_modules/atom-package-deps/node_modules/atom-package-path/package.json",
-        "node_modules/atom-package-deps/package.json",
-        "node_modules/xregexp/package.json",
-        "package.json"
       ]
     },
     "folders": [
@@ -97,27 +200,64 @@
           "spec"
         ],
         "dependencies": {
-          "atom-package-deps": "^4.0.1",
+          "atom-package-deps": "^4.3.0",
+          "sb-exec": "^3.1.0",
+          "semver": "^5.3.0",
           "xregexp": "~3.1.0"
         }
       },
       {
         "paths": [
-          "node_modules/atom-package-deps/lib",
-          "node_modules/atom-package-deps"
+          "node_modules/atom-package-deps",
+          "node_modules/atom-package-deps/decls",
+          "node_modules/atom-package-deps/lib"
         ],
         "dependencies": {
-          "atom-package-path": "^1.1.0"
+          "atom-package-path": "^1.1.0",
+          "sb-exec": "^3.0.1"
         }
       },
       {
         "paths": [
-          "node_modules/atom-package-deps/node_modules/atom-package-path/lib",
-          "node_modules/atom-package-deps/node_modules/atom-package-path",
-          "node_modules/atom-package-deps/node_modules/atom-package-path/spec"
+          "node_modules/atom-package-path/lib",
+          "node_modules/atom-package-path",
+          "node_modules/atom-package-path/spec"
         ],
         "dependencies": {
           "sb-callsite": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/consistent-env",
+          "node_modules/consistent-env/decls",
+          "node_modules/consistent-env/lib"
+        ],
+        "dependencies": {
+          "lodash.uniq": "^4.5.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sb-exec",
+          "node_modules/sb-exec/decls",
+          "node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "lodash.uniq": "^4.5.0",
+          "sb-npm-path": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sb-npm-path",
+          "node_modules/sb-npm-path/decls",
+          "node_modules/sb-npm-path/lib"
+        ],
+        "dependencies": {
+          "sb-memoize": "^1.0.2",
+          "sb-promisify": "^2.0.1"
         }
       }
     ]

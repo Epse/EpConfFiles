@@ -76,7 +76,7 @@ URxvt.color19:      base02
 
 URxvt.transparent:   true
 URxvt.tintColor:     white
-URxvt.shading:       30
+URxvt.shading:       50
 
 URxvt.font: xft:Input Mono:size=9
 ! URxvt.letterSpace:-5

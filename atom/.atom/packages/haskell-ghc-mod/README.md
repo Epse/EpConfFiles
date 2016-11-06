@@ -79,7 +79,10 @@ You can edit Atom keybindings by opening 'Edit → Open Your Keymap'. Here is a 
   'ctrl-alt-i': 'haskell-ghc-mod:show-info' #this is an example binding
   'ctrl-alt-T': 'haskell-ghc-mod:insert-type' #this is an example binding
   '': 'haskell-ghc-mod:case-split'
+  '': 'haskell-ghc-mod:sig-fill'
   '': 'haskell-ghc-mod:show-info-fallback-to-type'
+  '': 'haskell-ghc-mod:show-type-fallback-to-info'
+  '': 'haskell-ghc-mod:show-type-and-info'
   '': 'haskell-ghc-mod:insert-import'
   '': 'haskell-ghc-mod:go-to-declaration'
 
@@ -96,3 +99,44 @@ Since 1.0.0, haskell-ghc-mod provides `haskell-completion-backend` service.
 You can find description in [completion-backend.coffee][2]
 
 [2]:https://github.com/atom-haskell/haskell-ghc-mod/blob/master/lib/completion-backend/completion-backend.coffee
+
+# Advanced configuration
+
+In some cases, it could be useful to disable ghc-mod completely for a given project (e.g. GHCJS), or suppress error pop-ups (e.g. in case of known ghc-mod bugs where some features don't work, or don't always work).
+
+You can create `.haskell-ghc-mod.json` file in project root (i.e. directory containing a `*.cabal` file, or -- in case of plain projects -- Atom's project root directory).
+
+You can also create a global config file in `${ATOM_CONFIG_DIR}/haskell-ghc-mod.json`. `${ATOM_CONFIG_DIR}` is usually `${HOME}/.atom`, but you can check it's path by running `atom.getConfigDirPath()` in Atom's developer console (View → Developer → Toggle Developer Tools → Console).
+
+Config file is a JSON file with the following fields:
+
+- `"disable"` -- `true`/`false`. Will disable all ghc-mod functions entirely. If omitted, defaults to `false`.
+- `"suppressErrors"` -- `true`/`false`. Will suppress error pop-ups. Those still will be displayed in Atom's console (View → Developer → Toggle Developer Tools), so if someting seems wierd, one could check there.
+- `"ghcOptions"` -- Array of Strings. Options to pass to GHC. Can be useful to explicitly suppress warnings, e.g. `-fno-warn-unused-do-bind` or anything else.
+- `"ghcModOptions"` -- Array of Strings. Arbitrary options to pass to ghc-mod. Bear in mind that you shouldn't *really* change most ghc-mod options, since the package makes some assumptions on that part. Also only global ghc-mod options will work (i.e. no command-specific ones)
+
+Example:
+
+```json
+{
+  "disable": false,
+  "suppressErrors": true,
+  "ghcOptions": ["-fno-warn-unused-do-bind", "-fno-warn-name-shadowing"],
+  "ghcModOptions": ["--with-ghc", "/path/to/custom/ghc"]
+}
+```
+
+# License
+
+This software is licensed under MIT license. See LICENSE.md for details.
+
+Contributors:
+
+* Nikolay Yakimov
+* Daniel Gröber
+* Petr Gladkikh
+* Mike MacDonald
+* Maiddog
+* Jason Jackson
+* Dennis J. McWherter Jr
+* Aaron Wolf

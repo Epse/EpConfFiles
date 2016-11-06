@@ -1,0 +1,34 @@
+(function() {
+  var random;
+
+  random = require("lodash.random");
+
+  module.exports = {
+    shake: function(editorElement) {
+      var max, min, x, y;
+      min = this.getConfig("minIntensity");
+      max = this.getConfig("maxIntensity");
+      x = this.shakeIntensity(min, max);
+      y = this.shakeIntensity(min, max);
+      editorElement.style.top = "" + y + "px";
+      editorElement.style.left = "" + x + "px";
+      return setTimeout(function() {
+        editorElement.style.top = "";
+        return editorElement.style.left = "";
+      }, 75);
+    },
+    shakeIntensity: function(min, max) {
+      var direction;
+      direction = Math.random() > 0.5 ? -1 : 1;
+      return random(min, max, true) * direction;
+    },
+    getConfig: function(config) {
+      return atom.config.get("activate-power-mode.screenShake." + config);
+    }
+  };
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL2hvbWUvZXBzZS9FcENvbmZGaWxlcy9hdG9tLy5hdG9tL3BhY2thZ2VzL2FjdGl2YXRlLXBvd2VyLW1vZGUvbGliL3NjcmVlbi1zaGFrZS5jb2ZmZWUiCiAgXSwKICAibmFtZXMiOiBbXSwKICAibWFwcGluZ3MiOiAiQUFBQTtBQUFBLE1BQUEsTUFBQTs7QUFBQSxFQUFBLE1BQUEsR0FBUyxPQUFBLENBQVEsZUFBUixDQUFULENBQUE7O0FBQUEsRUFFQSxNQUFNLENBQUMsT0FBUCxHQUNFO0FBQUEsSUFBQSxLQUFBLEVBQU8sU0FBQyxhQUFELEdBQUE7QUFDTCxVQUFBLGNBQUE7QUFBQSxNQUFBLEdBQUEsR0FBTSxJQUFDLENBQUEsU0FBRCxDQUFXLGNBQVgsQ0FBTixDQUFBO0FBQUEsTUFDQSxHQUFBLEdBQU0sSUFBQyxDQUFBLFNBQUQsQ0FBVyxjQUFYLENBRE4sQ0FBQTtBQUFBLE1BR0EsQ0FBQSxHQUFJLElBQUMsQ0FBQSxjQUFELENBQWdCLEdBQWhCLEVBQXFCLEdBQXJCLENBSEosQ0FBQTtBQUFBLE1BSUEsQ0FBQSxHQUFJLElBQUMsQ0FBQSxjQUFELENBQWdCLEdBQWhCLEVBQXFCLEdBQXJCLENBSkosQ0FBQTtBQUFBLE1BTUEsYUFBYSxDQUFDLEtBQUssQ0FBQyxHQUFwQixHQUEwQixFQUFBLEdBQUcsQ0FBSCxHQUFLLElBTi9CLENBQUE7QUFBQSxNQU9BLGFBQWEsQ0FBQyxLQUFLLENBQUMsSUFBcEIsR0FBMkIsRUFBQSxHQUFHLENBQUgsR0FBSyxJQVBoQyxDQUFBO2FBU0EsVUFBQSxDQUFXLFNBQUEsR0FBQTtBQUNULFFBQUEsYUFBYSxDQUFDLEtBQUssQ0FBQyxHQUFwQixHQUEwQixFQUExQixDQUFBO2VBQ0EsYUFBYSxDQUFDLEtBQUssQ0FBQyxJQUFwQixHQUEyQixHQUZsQjtNQUFBLENBQVgsRUFHRSxFQUhGLEVBVks7SUFBQSxDQUFQO0FBQUEsSUFlQSxjQUFBLEVBQWdCLFNBQUMsR0FBRCxFQUFNLEdBQU4sR0FBQTtBQUNkLFVBQUEsU0FBQTtBQUFBLE1BQUEsU0FBQSxHQUFlLElBQUksQ0FBQyxNQUFMLENBQUEsQ0FBQSxHQUFnQixHQUFuQixHQUE0QixDQUFBLENBQTVCLEdBQW9DLENBQWhELENBQUE7YUFDQSxNQUFBLENBQU8sR0FBUCxFQUFZLEdBQVosRUFBaUIsSUFBakIsQ0FBQSxHQUF5QixVQUZYO0lBQUEsQ0FmaEI7QUFBQSxJQW1CQSxTQUFBLEVBQVcsU0FBQyxNQUFELEdBQUE7YUFDVCxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQVosQ0FBaUIsa0NBQUEsR0FBa0MsTUFBbkQsRUFEUztJQUFBLENBbkJYO0dBSEYsQ0FBQTtBQUFBIgp9
+
+//# sourceURL=/home/epse/EpConfFiles/atom/.atom/packages/activate-power-mode/lib/screen-shake.coffee

@@ -1,3 +1,13 @@
+tooltipActions =
+  [
+    {value: '', description: 'Nothing'}
+    {value: 'type', description: 'Type'}
+    {value: 'info', description: 'Info'}
+    {value: 'infoType', description: 'Info, fallback to Type'}
+    {value: 'typeInfo', description: 'Type, fallback to Info'}
+    {value: 'typeAndInfo', description: 'Type and Info'}
+  ]
+
 module.exports = HaskellGhcMod =
   process: null
 
@@ -38,13 +48,26 @@ module.exports = HaskellGhcMod =
       type: 'boolean'
       default: true
       description: 'Add stack bin-path to PATH'
-    syncTimeout:
+    initTimeout:
       type: 'integer'
-      description: 'Some ghc-mod operations need to be run in sync. This option
-                    sets timeout for such operations. Increase if getting
-                    ETIMEDOUT errors.'
-      default: 5000
-      minimum: 100
+      description: 'How long to wait for initialization commands (checking
+                    GHC and ghc-mod versions, getting stack sandbox) until
+                    assuming those hanged and bailing. In seconds.'
+      default: 60
+      minimum: 1
+    interactiveInactivityTimeout:
+      type: 'integer'
+      description: 'Kill ghc-mod interactive process (ghc-modi) after this
+                    number of minutes of inactivity to conserve memory. 0
+                    means never.'
+      default: 60
+      minimum: 0
+    interactiveActionTimeout:
+      type: 'integer'
+      description: 'Timeout for interactive ghc-mod commands (in seconds). 0
+                    means wait forever.'
+      default: 300
+      minimum: 0
 
     onSaveCheck:
       type: "boolean"
@@ -68,14 +91,15 @@ module.exports = HaskellGhcMod =
 
     onMouseHoverShow:
       type: 'string'
-      default: 'Info, fallback to Type'
-      enum: ['Nothing', 'Type', 'Info', 'Info, fallback to Type']
+      description: 'Contents of tooltip on mouse hover'
+      default: 'typeAndInfo'
+      enum: tooltipActions
 
-    showTypeOnSelection:
-      type: 'boolean'
-      default: false
-      description:
-        'Show type of selected expression if editor selection changed'
+    onSelectionShow:
+      type: 'string'
+      description: 'Contents of tooltip on selection'
+      default: ''
+      enum: tooltipActions
 
     useLinter:
       type: 'boolean'
@@ -176,12 +200,8 @@ module.exports = HaskellGhcMod =
                 text: text.replace(/\n+$/, '')
             }
 
-      # NOTE: some pretty gnarly hacks here...
-      disp = atom.config.observe "haskell-ghc-mod.#{lintOnFly}", (value) ->
+      # TODO: Rewrite this horribleness
+      atom.config.observe "haskell-ghc-mod.#{lintOnFly}", (value) ->
         linter.lintOnFly = value
-
-      Object.observe linter, ->
-        if linter.deactivated
-          disp.dispose()
 
       return linter

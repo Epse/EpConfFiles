@@ -13,6 +13,8 @@
       "ex-mode"
       "vim-mode"
       "keyboard-localization"
+      "atom-autocomplete-php"
+      "php-composer-completion"
     ]
     themes: [
       "seti-ui"

@@ -1,3 +1,28 @@
+# 0.6.0
+*  Use asynchronous execs instead of synchronous (@White-Oak)
+
+# 0.5.7
+* Assume non-nightly versions >= 1.12.0, fix #78 (@jviide)
+
+# 0.5.6
+* Fixed the way json errors are requested from cargo & rustc, fix #69 (@White-Oak)
+
+# 0.5.5
+* Update atom-package-deps to version 4.3.0
+* Fix #70 (@Maplicant)
+
+# 0.5.4
+* Fix indexOf check (@benstreb)
+
+# 0.5.2
+* Removed default values for features specified, fix #65 (@White-Oak)
+
+# 0.5.1
+* Ability to specify features to lint (@White-Oak)
+
+# 0.5.0
+* Added support for JSON error output of rustc (@White-Oak)
+
 # 0.4.6
 * Fixed undesirable modification of global objects (@lhecker)
 * Trim whitespace from rustc and cargo paths (@chriskrycho)

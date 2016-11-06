@@ -438,7 +438,7 @@ module.exports =
                         scopeDescriptor = editor.scopeDescriptorForBufferPosition([line, i]).getScopeChain()
 
                         # Language constructs, such as echo and print, don't require parantheses.
-                        if scopeDescriptor.indexOf('.function.construct') > 0 or scopeDescriptor.indexOf('.comment') > 0
+                        if scopeDescriptor.indexOf('.function.construct') > 0
                             ++i
                             finished = true
                             break
@@ -668,7 +668,7 @@ module.exports =
         proxy = require '../services/php-proxy.coffee'
         methods = proxy.methods(calledClass)
 
-        if not methods
+        if not methods || not methods?
             return
 
         if methods.error? and methods.error != ''
@@ -680,7 +680,7 @@ module.exports =
                 console.log 'Failed to get methods for ' + calledClass + ' : ' + methods.error.message
 
             return
-        if methods.values?.hasOwnProperty(term) == false 
+        if !methods.values?.hasOwnProperty(term)
             return
 
         value = methods.values[term]

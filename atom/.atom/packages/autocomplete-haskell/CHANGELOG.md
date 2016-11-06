@@ -1,3 +1,9 @@
+## 0.6.7
+* Add option for default hint panel visibility
+
+## 0.6.6
+* Support instance overlap pragmas
+
 ## 0.6.5
 * Fix preprocessorSuggestions
 

@@ -1,12 +1,11 @@
-SubAtom = require 'sub-atom'
+Range = null
 
-{bufferPositionFromMouseEvent} = require './utils'
-{TooltipMessage} = require './views/tooltip-view'
-{Range, Disposable, Emitter} = require 'atom'
-
+module.exports =
 class EditorControl
   constructor: (@editor) ->
+    SubAtom = require 'sub-atom'
     @disposables = new SubAtom
+    {Range, Emitter} = require 'atom'
     @disposables.add @emitter = new Emitter
 
     editorElement = atom.views.getView(@editor)
@@ -15,6 +14,8 @@ class EditorControl
     @gutter ?= @editor.addGutter
       name: "ide-haskell-check-results"
       priority: 10
+
+    {bufferPositionFromMouseEvent} = require './utils'
 
     gutterElement = atom.views.getView(@gutter)
     @disposables.add gutterElement, 'mouseenter', ".decoration", (e) =>
@@ -90,16 +91,22 @@ class EditorControl
         m.destroy()
     @markerFromCheckResult(r) for r in res
 
-  markerFromCheckResult: ({uri, severity, message, position}) ->
+  markerFromCheckResult: (resItem) ->
+    {uri, severity, message, position} = resItem
     return unless uri? and uri is @editor.getURI()
 
     # create a new marker
     range = new Range position, {row: position.row, column: position.column + 1}
-    marker = @editor.markBufferRange range,
+    marker = @editor.markBufferRange range, invalidate: 'touch'
+    marker.setProperties
       type: 'check-result'
       severity: severity
       desc: message
       editor: @editor.id
+    marker.disposables.add marker.onDidChange ({isValid}) ->
+      unless isValid
+        resItem.destroy()
+        marker.destroy()
 
     @decorateMarker(marker)
 
@@ -129,8 +136,25 @@ class EditorControl
        pos.row >= @editor.getLineCount() or
        pos.isEqual @editor.bufferRangeForBufferRow(pos.row).end
       @hideTooltip {eventType}
-    else
+    else if @rangeHasChanged(pos, eventType)
       @emitter.emit 'should-show-tooltip', {@editor, pos, eventType}
+
+  rangeHasChanged: (pos, eventType) ->
+    newrange = @getEventRange(pos, eventType).crange
+    isFirstIteration = not (@lastMouseBufferPtTest? and @lastMouseBufferRangeTest?)
+    rangesAreEmpty = => @lastMouseBufferRangeTest.isEmpty() and newrange.isEmpty()
+    isSameRow = => @lastMouseBufferPtTest.row is pos.row
+    isSameToken = =>
+      return false unless rangesAreEmpty() and isSameRow()
+      tl = @editor.tokenizedBuffer.tokenizedLineForRow(@lastMouseBufferPtTest.row)
+      oldtokid = tl.tokenIndexAtBufferColumn(@lastMouseBufferPtTest.column)
+      newtokid = tl.tokenIndexAtBufferColumn(pos.column)
+      oldtokid is newtokid
+    result =
+      isFirstIteration or not ( @lastMouseBufferRangeTest.isEqual(newrange) or isSameToken() )
+    @lastMouseBufferPtTest = pos
+    @lastMouseBufferRangeTest = newrange
+    return result
 
   showTooltip: (pos, range, text, detail) ->
     return unless @editor?
@@ -151,10 +175,12 @@ class EditorControl
     @tooltipHighlightRange = range
     markerPos = range.start
     detail.type = 'tooltip'
-    tooltipMarker = @editor.markBufferPosition markerPos, detail
-    highlightMarker = @editor.markBufferRange range, detail
-    @editor.decorateMarker tooltipMarker,
+    highlightMarker = @editor.markBufferRange range
+    highlightMarker.setProperties detail
+    TooltipMessage = require './views/tooltip-view'
+    @editor.decorateMarker highlightMarker,
       type: 'overlay'
+      position: 'tail'
       item: new TooltipMessage text
     @editor.decorateMarker highlightMarker,
       type: 'highlight'
@@ -221,7 +247,3 @@ class EditorControl
   hasTooltips: (template = {}) ->
     template.type = 'tooltip'
     !!@editor.findMarkers(template).length
-
-module.exports = {
-  EditorControl
-}

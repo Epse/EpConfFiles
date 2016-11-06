@@ -1,8 +1,9 @@
-{Range, Point, Emitter, CompositeDisposable} = require 'atom'
+{Range, Point, Emitter, CompositeDisposable, Directory} = require 'atom'
 Util = require '../util'
 {extname} = require('path')
 Queue = require 'promise-queue'
 {unlitSync} = require 'atom-haskell-utils'
+_ = require 'underscore-plus'
 
 GhcModiProcessReal = require './ghc-modi-process-real.coffee'
 _ = require 'underscore-plus'
@@ -70,7 +71,7 @@ class GhcModiProcess
       @commandQueues.browse = new Queue(value)
 
   getVersion: (opts) ->
-    timeout = atom.config.get('haskell-ghc-mod.syncTimeout')
+    timeout = atom.config.get('haskell-ghc-mod.initTimeout') * 1000
     cmd = atom.config.get('haskell-ghc-mod.ghcModPath')
     Util.execPromise cmd, ['version'], _.extend({timeout}, opts)
     .then (stdout) ->
@@ -80,18 +81,16 @@ class GhcModiProcess
       return {vers, comp}
 
   checkComp: (opts, {comp}) ->
-    timeout = atom.config.get('haskell-ghc-mod.syncTimeout')
+    timeout = atom.config.get('haskell-ghc-mod.initTimeout') * 1000
     stackghc =
-      Util.execPromise 'stack', ['ghc', '--', '--version'], _.extend({timeout}, opts)
-      .then (stdout) ->
-        /version (.+)$/.exec(stdout.trim())[1]
+      Util.execPromise 'stack', ['ghc', '--', '--numeric-version'], _.extend({timeout}, opts)
+      .then (stdout) -> stdout.trim()
       .catch (error) ->
         Util.warn error
         return null
     pathghc =
-      Util.execPromise 'ghc', ['--version'], _.extend({timeout}, opts)
-      .then (stdout) ->
-        /version (.+)$/.exec(stdout.trim())[1]
+      Util.execPromise 'ghc', ['--numeric-version'], _.extend({timeout}, opts)
+      .then (stdout) -> stdout.trim()
       .catch (error) ->
         Util.warn error
         return null
@@ -205,18 +204,51 @@ class GhcModiProcess
     promise = @commandQueues[queueName].add =>
       @emitter.emit 'backend-active'
       rd = runArgs.dir or Util.getRootDir(runArgs.options.cwd)
-      new Promise (resolve, reject) ->
-        rd.getEntries (error, files) ->
-          if error?
-            reject error
+      localSettings = new Promise (resolve, reject) ->
+        file = rd.getFile('.haskell-ghc-mod.json')
+        file.exists()
+        .then (ex) ->
+          if ex
+            file.read().then (contents) ->
+              try
+                resolve JSON.parse(contents)
+              catch err
+                atom.notifications.addError 'Failed to parse .haskell-ghc-mod.json',
+                  detail: err
+                  dismissable: true
+                reject err
           else
-            resolve files
+            reject()
       .catch (error) ->
-        Util.warn error
-        return []
-      .then (files) ->
-        if files.some((e) -> e.isFile() and e.getBaseName() is '.disable-ghc-mod')
-          throw new Error("Disable-ghc-mod found")
+        Util.warn error if error?
+        return {}
+      globalSettings = new Promise (resolve, reject) ->
+        configDir = new Directory(atom.getConfigDirPath())
+        file = configDir.getFile('haskell-ghc-mod.json')
+        file.exists()
+        .then (ex) ->
+          if ex
+            file.read().then (contents) ->
+              try
+                resolve JSON.parse(contents)
+              catch err
+                atom.notifications.addError 'Failed to parse haskell-ghc-mod.json',
+                  detail: err
+                  dismissable: true
+                reject err
+          else
+            reject()
+      .catch (error) ->
+        Util.warn error if error?
+        return {}
+      Promise.all [globalSettings, localSettings]
+      .then ([glob, loc]) ->
+        _.extend(glob, loc)
+      .then (settings) ->
+        throw new Error("Ghc-mod disabled in settings") if settings.disable
+        runArgs.suppressErrors = settings.suppressErrors
+        runArgs.ghcOptions = settings.ghcOptions
+        runArgs.ghcModOptions = settings.ghcModOptions
       .then ->
         backend.run runArgs
       .catch (err) ->
@@ -285,10 +317,14 @@ class GhcModiProcess
     .then (lines) ->
       [range, type] = lines.reduce ((acc, line) ->
         return acc if acc != ''
-        tokens = line.split '"'
-        pos = tokens[0].trim().split(' ').map (i) -> i - 1
-        type = tokens[1]
-        myrange = new Range [pos[0], pos[1]], [pos[2], pos[3]]
+        rx = /^(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+"([^]*)"$/ # [^] basically means "anything", incl. newlines
+        [line_, rowstart, colstart, rowend, colend, text] = line.match(rx)
+        type = text.replace(/\\"/g, '"')
+        myrange =
+          Range.fromObject [
+            [parseInt(rowstart) - 1, parseInt(colstart) - 1],
+            [parseInt(rowend) - 1, parseInt(colend) - 1]
+          ]
         return acc if myrange.isEmpty()
         return acc unless myrange.containsRange(crange)
         myrange = Util.tabUnshiftForRange(buffer, myrange)
@@ -326,6 +362,31 @@ class GhcModiProcess
             [parseInt(rowend) - 1, parseInt(colend) - 1]
           ]
         replacement: text
+
+  doSigFill: (buffer, crange) =>
+    return Promise.resolve [] unless buffer.getUri()?
+    crange = Util.tabShiftForRange(buffer, crange)
+    @queueCmd 'typeinfo',
+      interactive: @caps?.interactiveCaseSplit ? false
+      buffer: buffer
+      command: 'sig',
+      uri: buffer.getUri()
+      text: buffer.getText() if buffer.isModified()
+      args: [crange.start.row + 1, crange.start.column + 1]
+    .then (lines) ->
+      return [] unless lines[0]?
+      rx = /^(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/ # position rx
+      [line_, rowstart, colstart, rowend, colend] = lines[1].match(rx)
+      range =
+        Range.fromObject [
+          [parseInt(rowstart) - 1, parseInt(colstart) - 1],
+          [parseInt(rowend) - 1, parseInt(colend) - 1]
+        ]
+      return [
+        type: lines[0]
+        range: range
+        body: lines.slice(2).join('\n')
+      ]
 
   getInfoInBuffer: (editor, crange) =>
     buffer = editor.getBuffer()

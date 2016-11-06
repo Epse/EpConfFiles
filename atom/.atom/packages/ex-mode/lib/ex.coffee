@@ -4,8 +4,17 @@ fs = require 'fs-plus'
 VimOption = require './vim-option'
 _ = require 'underscore-plus'
 
+defer = () ->
+  deferred = {}
+  deferred.promise = new Promise((resolve, reject) ->
+    deferred.resolve = resolve
+    deferred.reject = reject
+  )
+  return deferred
+
+
 trySave = (func) ->
-  deferred = Promise.defer()
+  deferred = defer()
 
   try
     func()
@@ -109,6 +118,11 @@ class Ex
   @registerAlias: (alias, name) =>
     @singleton()[alias] = (args) => @singleton()[name](args)
 
+  @getCommands: () =>
+    Object.keys(Ex.singleton()).concat(Object.keys(Ex.prototype)).filter((cmd, index, list) ->
+      list.indexOf(cmd) == index
+    )
+
   quit: ->
     atom.workspace.getActivePane().destroyActiveItem()
 
@@ -127,11 +141,11 @@ class Ex
 
   tabe: (args) => @tabedit(args)
 
-  tabnew: ({ range, args }) =>
-    if args.trim() is ''
+  tabnew: (args) =>
+    if args.args.trim() is ''
       atom.workspace.open()
     else
-      @tabedit(range, args)
+      @tabedit(args)
 
   tabclose: (args) => @quit(args)
 
@@ -194,7 +208,7 @@ class Ex
     if filePath.indexOf(' ') isnt -1
       throw new CommandError('Only one file name allowed')
 
-    deferred = Promise.defer()
+    deferred = defer()
 
     editor = atom.workspace.getActiveTextEditor()
     saved = false
@@ -213,7 +227,7 @@ class Ex
     if not saved and fullPath?
       if not force and fs.existsSync(fullPath)
         throw new CommandError("File exists (add ! to override)")
-      if saveas
+      if saveas or editor.getFileName() == null
         editor = atom.workspace.getActiveTextEditor()
         trySave(-> editor.saveAs(fullPath, editor)).then(deferred.resolve)
       else
@@ -258,13 +272,23 @@ class Ex
     filePaths = args.split(' ')
     filePaths = undefined if filePaths.length is 1 and filePaths[0] is ''
     pane = atom.workspace.getActivePane()
-    if filePaths? and filePaths.length > 0
-      newPane = pane.splitUp()
-      for file in filePaths
-        do ->
-          atom.workspace.openURIInPane file, newPane
+    if atom.config.get('ex-mode.splitbelow')
+      if filePaths? and filePaths.length > 0
+        newPane = pane.splitDown()
+        for file in filePaths
+          do ->
+            atom.workspace.openURIInPane file, newPane
+      else
+        pane.splitDown(copyActiveItem: true)
     else
-      pane.splitUp(copyActiveItem: true)
+      if filePaths? and filePaths.length > 0
+        newPane = pane.splitUp()
+        for file in filePaths
+          do ->
+            atom.workspace.openURIInPane file, newPane
+      else
+        pane.splitUp(copyActiveItem: true)
+
 
   sp: (args) => @split(args)
 
@@ -335,19 +359,38 @@ class Ex
     filePaths = args.split(' ')
     filePaths = undefined if filePaths.length is 1 and filePaths[0] is ''
     pane = atom.workspace.getActivePane()
-    if filePaths? and filePaths.length > 0
-      newPane = pane.splitLeft()
-      for file in filePaths
-        do ->
-          atom.workspace.openURIInPane file, newPane
+    if atom.config.get('ex-mode.splitright')
+      if filePaths? and filePaths.length > 0
+        newPane = pane.splitRight()
+        for file in filePaths
+          do ->
+            atom.workspace.openURIInPane file, newPane
+      else
+        pane.splitRight(copyActiveItem: true)
     else
-      pane.splitLeft(copyActiveItem: true)
+      if filePaths? and filePaths.length > 0
+        newPane = pane.splitLeft()
+        for file in filePaths
+          do ->
+            atom.workspace.openURIInPane file, newPane
+      else
+        pane.splitLeft(copyActiveItem: true)
 
   vsp: (args) => @vsplit(args)
 
   delete: ({ range }) ->
     range = [[range[0], 0], [range[1] + 1, 0]]
-    atom.workspace.getActiveTextEditor().buffer.setTextInRange(range, '')
+    editor = atom.workspace.getActiveTextEditor()
+
+    text = editor.getTextInBufferRange(range)
+    atom.clipboard.write(text)
+
+    editor.buffer.setTextInRange(range, '')
+
+  yank: ({ range }) ->
+    range = [[range[0], 0], [range[1] + 1, 0]]
+    txt = atom.workspace.getActiveTextEditor().getTextInBufferRange(range)
+    atom.clipboard.write(txt);
 
   set: ({ range, args }) ->
     args = args.trim()

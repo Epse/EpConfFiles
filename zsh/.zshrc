@@ -40,3 +40,6 @@ alias -g fndin='| grep -i '
 alias -g fndsn='| grep  '
 alias e=$EDITOR
 alias x=exit
+alias dirs='dirs -v'
+
+eval $(keychain --agents ssh,gpg --eval --quiet id_ed25519 id_rsa C74B4EB0)
