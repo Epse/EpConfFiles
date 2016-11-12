@@ -42,7 +42,7 @@
   bindsym $mod+b split h
 # Program Settings
   bindsym $mod+Return exec urxvt
-  bindsym $mod+d exec rofi -show run
+  bindsym $mod+d exec rofi -show drun
   bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
   bindsym $mod+Shift+s exec scrot -s ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png
 # exit i3 (logs you out of your X session)
@@ -136,9 +136,8 @@
   workspace $workspace10 output $monitor2
 
 # Program Workspace Assignments
-  assign [class="chromium"] $workspace1
   assign [class="banshee"] $workspace10
-  assign [class="firefox"] $workspace1
+  assign [class="Firefox"] $workspace1
   assign [class="mutt"] $workspace8
   assign [class="Spotify"] $workspace10
 
@@ -148,9 +147,9 @@
   for_window [class="Pavucontrol"] floating enable
 
 
-gaps inner 8
-gaps outer 0
-smart_gaps on
+#gaps inner 8
+#gaps outer 0
+#smart_gaps on
 
 # i3 Status Bar
   bar {
@@ -187,23 +186,23 @@ smart_gaps on
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
 
   # Dual Work Monitor
-  exec_always --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output HDMI-0 \
+  #exec_always --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output HDMI-0 \
     --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 \
     --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
   exec --no-startup-id compton -f --config ~/.config/i3/.compton.conf
-  exec --no-startup-id nohup chromium
+  exec i3-msg workspace $workspace1
+  exec nohup firefox
   exec nm-applet
   exec autocutsel -fork &
   exec autocutsel -selection PRIMARY -fork &
-  exec --no-startup-id banshee &
   exec --no-startup-id blueberry-tray &
   exec --no-startup-id pasystray &
   exec /usr/bin/dropbox &
 
 
 # Keyboard
-  exec_always setxkbmap -option "ctrl:nocaps"
+  #exec_always setxkbmap -option "ctrl:nocaps"
+  exec_always xmodmap ~/.xmodmap
   exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   exec_always xcape -e 'Control_L=Escape'
-  #exec --no-startup-id "i3-msg 'workspace $workspace1'"

@@ -74,9 +74,8 @@ URxvt.color19:      base02
 *.color20:      base04
 *.color21:      base06
 
-URxvt.transparent:   true
-URxvt.tintColor:     white
-URxvt.shading:       50
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
 
 URxvt.font: xft:Input Mono:size=9
 ! URxvt.letterSpace:-5

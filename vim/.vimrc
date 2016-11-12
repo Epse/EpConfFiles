@@ -60,6 +60,8 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-haml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on
@@ -128,6 +130,7 @@ set noswapfile
 set splitbelow
 set splitright
 set cursorline
+hi CursorLine term=bold cterm=bold ctermbg=black
 set fileformat=unix
 set fileformats=unix,dos,mac
 set nowrap

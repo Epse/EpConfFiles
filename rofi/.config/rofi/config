@@ -1,5 +1,5 @@
 ! Enabled modi
-rofi.modi:                           run
+rofi.modi:                           drun
 
 ! Window opacity
 rofi.opacity:                        90
