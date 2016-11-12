@@ -187,8 +187,8 @@
 
   # Dual Work Monitor
   #exec_always --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output HDMI-0 \
-    --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 \
-    --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+  #  --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 \
+  #  --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
   exec --no-startup-id compton -f --config ~/.config/i3/.compton.conf
   exec i3-msg workspace $workspace1
@@ -202,7 +202,6 @@
 
 
 # Keyboard
-  #exec_always setxkbmap -option "ctrl:nocaps"
-  exec_always xmodmap ~/.xmodmap
+  exec_always setxkbmap -option "ctrl:swapcaps"
   exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
-  exec_always xcape -e 'Control_L=Escape'
+  #exec_always xcape -e 'Control_L=Escape'
