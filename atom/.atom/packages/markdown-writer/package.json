@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
+        "raw": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
-        "spec": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
+        "rawSpec": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
+        "spec": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-21873-1s3ct50.2geat9be29"
+      "/tmp/epse/apm-install-dir-11709-25096-gxp9ab.ghsn61or"
     ]
   ],
-  "_from": "../d-116925-21873-f173js.85rz0ssjor/package.tgz",
-  "_id": "markdown-writer@2.6.1",
+  "_from": "../d-11709-25096-e139r7.okixqiwwmi/package.tgz",
+  "_id": "markdown-writer@2.6.3",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
+    "raw": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
-    "spec": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
+    "rawSpec": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
+    "spec": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-21873-f173js.85rz0ssjor/package.tgz",
-  "_shasum": "0efa359af96a91f0eb364bb11da2a2ed6a34bac8",
+  "_resolved": "file:../d-11709-25096-e139r7.okixqiwwmi/package.tgz",
+  "_shasum": "ace18a1686ab47b3905a10f44ad44e55edab135d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-21873-f173js.85rz0ssjor/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-21873-1s3ct50.2geat9be29",
+  "_spec": "/tmp/epse/d-11709-25096-e139r7.okixqiwwmi/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-11709-25096-gxp9ab.ghsn61or",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
@@ -122,7 +122,7 @@
     "type": "git",
     "url": "git+https://github.com/zhuochun/md-writer.git"
   },
-  "version": "2.6.1",
+  "version": "2.6.3",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -233,7 +233,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.6.1",
+        "version": "3.7.0",
         "path": "node_modules/js-yaml/index.js"
       },
       {

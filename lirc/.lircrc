@@ -1,0 +1,111 @@
+begin
+  remote = HP_RC1762307-01
+  prog=pulseaudio
+  config=volume-down
+  button=KEY_VOLUMEDOWN
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307-01
+  prog=pulseaudio
+  config=volume-up
+  button=KEY_VOLUMEUP
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307-01
+  prog=irexec
+  config=pulseaudio-ctl up
+  button=KEY_VOLUMEUP
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307-01
+  prog=pulseaudio
+  config=volume-up
+  button=KEY_VOLUMEUP
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307-01
+  prog = irexec
+  config = pulseaudio-ctl up
+  button=KEY_VOLUMEUP
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307-01
+  prog=pulseaudio
+  config=mute-toggle
+  button=KEY_MUTE
+  repeat=0
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_INFO
+  config = Key space CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_UP
+  config = Key Up CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_DOWN
+  config = Key Down CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_LEFT
+  config = Key Left CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_RIGHT 
+  config = Key Right CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_OK
+  config = Key Return CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_CHANNELUP
+  config = Key Prior CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_CHANNELDOWN
+  config = Key Next CurrentWindow
+end
+
+begin
+  remote = HP_RC1762307 - 01
+  prog = irxevent
+  button = KEY_EXIT
+  config = Key Escape CurrentWindow
+end
+

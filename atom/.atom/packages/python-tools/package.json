@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
+        "raw": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
-        "spec": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
+        "rawSpec": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
+        "spec": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-13986-1y58i9x.yu3jjug14i"
+      "/tmp/epse/apm-install-dir-117015-23563-4jnqxu.mdjoov42t9"
     ]
   ],
-  "_from": "../d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
-  "_id": "python-tools@0.6.8",
+  "_from": "../d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
+  "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
+    "raw": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
-    "spec": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
+    "rawSpec": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
+    "spec": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
-  "_shasum": "40ebdebd2327039652bd1414b73428334d4045d0",
+  "_resolved": "file:../d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
+  "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-13986-11s1pfn.rh0dnxko6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-13986-1y58i9x.yu3jjug14i",
+  "_spec": "/tmp/epse/d-117015-23563-a506pg.o1mqx2mx6r/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-117015-23563-4jnqxu.mdjoov42t9",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"
@@ -62,7 +62,7 @@
     "type": "git",
     "url": "git+https://github.com/MichaelAquilina/python-tools.git"
   },
-  "version": "0.6.8",
+  "version": "0.6.9",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

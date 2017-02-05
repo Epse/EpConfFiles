@@ -73,7 +73,7 @@ syntax on
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
-" colorscheme solarized
+colorscheme monokai
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -110,11 +110,12 @@ set showbreak=+++
 set visualbell
 set hlsearch
 set autoindent
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 set expandtab
 set tabstop=2
-set softtabstop=2
+set softtabstop=0
+set smarttab
 set backspace=indent,eol,start
 set history=80
 set ruler
@@ -186,3 +187,4 @@ nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"

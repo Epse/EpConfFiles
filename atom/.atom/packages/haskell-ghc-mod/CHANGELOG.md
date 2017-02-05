@@ -1,3 +1,17 @@
+## 1.19.4
+* Make interactive-process output buffering more robust
+
+## 1.19.3
+* s/target/currentTarget/
+
+## 1.19.2
+* Add parts of bin-path to stack-sandbox
+
+## 1.19.1
+* Add warning about GHC_PACKAGE_PATH;Settings tweaks
+* Fix LICENSE date
+* Update LICENSE
+
 ## 1.19.0
 * Support for arbitrary ghc-mod options
 * Global configuration; ghcOptions config option

@@ -6,7 +6,7 @@ export GOPATH=/home/epse/Documents/Programming/Go
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/epse/.gem/ruby/2.3.0/bin"
+  export PATH="$PATH:/home/epse/.gem/ruby/2.3.0/bin:$GOPATH/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -14,6 +14,7 @@ export GOPATH=/home/epse/Documents/Programming/Go
 
 export EDITOR=vim
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PAGER=vimpager
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -43,3 +44,25 @@ alias x=exit
 alias dirs='dirs -v'
 
 eval $(keychain --agents ssh,gpg --eval --quiet id_ed25519 id_rsa C74B4EB0)
+
+mkcd () {
+	if ["$2" == "-p"]; then
+		case "$1" in
+			*/..|*/../) cd -- "$1";; # that doesn't make any sense unless the directory already exists
+			/*/../*) (cd "${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd -- "$1";;
+			/*) mkdir -p "$1" && cd "$1";;
+			*/../*) (cd "./${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd "./$1";;
+			../*) (cd .. && mkdir -p "${1#.}") && cd "$1";;
+			*) mkdir -p "./$1" && cd "./$1";;
+		esac
+	else
+		case "$1" in
+			*/..|*/../) cd -- "$1";; # that doesn't make any sense unless the directory already exists
+			/*/../*) (cd "${1%/../*}/.." && mkdir "./${1##*/../}") && cd -- "$1";;
+			/*) mkdir "$1" && cd "$1";;
+			*/../*) (cd "./${1%/../*}/.." && mkdir "./${1##*/../}") && cd "./$1";;
+			../*) (cd .. && mkdir "${1#.}") && cd "$1";;
+			*) mkdir "./$1" && cd "./$1";;
+		esac
+	fi
+}

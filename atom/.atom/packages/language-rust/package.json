@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
+        "raw": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
-        "spec": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
+        "rawSpec": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
+        "spec": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-13740-sqbvw0.3t3asgu8fr"
+      "/tmp/epse/apm-install-dir-117015-23557-1nbeve5.9a5iuanhfr"
     ]
   ],
-  "_from": "../d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
-  "_id": "language-rust@0.4.8",
+  "_from": "../d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
+  "_id": "language-rust@0.4.9",
   "_inCache": true,
   "_location": "/language-rust",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
+    "raw": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
-    "spec": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
+    "rawSpec": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
+    "spec": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
-  "_shasum": "bfa8d55e83428fb03149f8019042196e20c4ef2f",
+  "_resolved": "file:../d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
+  "_shasum": "f18bca67e4865d7871945bd9d8a615763c497208",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-13740-2my6x4.btdcz69a4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-13740-sqbvw0.3t3asgu8fr",
+  "_spec": "/tmp/epse/d-117015-23557-13udcyc.6b2aazia4i/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-117015-23557-1nbeve5.9a5iuanhfr",
   "bugs": {
     "url": "https://github.com/zargony/atom-language-rust/issues"
   },
@@ -60,7 +60,7 @@
     "type": "git",
     "url": "git+https://github.com/zargony/atom-language-rust.git"
   },
-  "version": "0.4.8",
+  "version": "0.4.9",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

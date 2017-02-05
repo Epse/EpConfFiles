@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
+        "raw": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
-        "spec": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
+        "rawSpec": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
+        "spec": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-21803-1xjgjxz.tss1pmbo6r"
+      "/tmp/epse/apm-install-dir-116115-5023-hg6uz8.0m7sh2rzfr"
     ]
   ],
-  "_from": "../d-116925-21803-1ts0e2g.izotro1or/package.tgz",
-  "_id": "ex-mode@0.13.0",
+  "_from": "../d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
+  "_id": "ex-mode@0.13.1",
   "_inCache": true,
   "_location": "/ex-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
+    "raw": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
-    "spec": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
+    "rawSpec": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
+    "spec": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-21803-1ts0e2g.izotro1or/package.tgz",
-  "_shasum": "9dce4f2697546327c4f34f8e0286c0aa20ac33ad",
+  "_resolved": "file:../d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
+  "_shasum": "9199ea3c2c6d342c19e3680c9e841c96e9b074e9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-21803-1ts0e2g.izotro1or/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-21803-1xjgjxz.tss1pmbo6r",
+  "_spec": "/tmp/epse/d-116115-5023-1j8av5q.u6is76tj4i/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-116115-5023-hg6uz8.0m7sh2rzfr",
   "activationCommands": {
     "atom-workspace": "ex-mode:open"
   },
@@ -81,7 +81,7 @@
     "type": "git",
     "url": "git+https://github.com/lloeki/ex-mode.git"
   },
-  "version": "0.13.0",
+  "version": "0.13.1",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

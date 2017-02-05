@@ -1,5 +1,15 @@
+# 0.7.2
+* Removed `-Zno-trans` option for forward compatibility (@White-Oak)
+
+# 0.7.1
+* Added beta and stable versions to proper JSON support mode (@White-Oak)
+
+# 0.7.0
+* Added a proper support for cargo --message-format json (@White-Oak)
+* Fix span for macro invocations (@utkarshkukreti)
+
 # 0.6.0
-*  Use asynchronous execs instead of synchronous (@White-Oak)
+* Use asynchronous execs instead of synchronous (@White-Oak)
 
 # 0.5.7
 * Assume non-nightly versions >= 1.12.0, fix #78 (@jviide)

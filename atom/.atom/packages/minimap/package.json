@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
+        "raw": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
-        "spec": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
+        "rawSpec": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
+        "spec": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-13890-yv4r63.s7f6o5hfr"
+      "/tmp/epse/apm-install-dir-116115-5060-il9ou4.3xveku766r"
     ]
   ],
-  "_from": "../d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
-  "_id": "minimap@4.25.6",
+  "_from": "../d-116115-5060-281qbn.88rx06n7b9/package.tgz",
+  "_id": "minimap@4.25.7",
   "_inCache": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
+    "raw": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
-    "spec": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
+    "rawSpec": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
+    "spec": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
-  "_shasum": "57019a8114f46004373fecdf8b00ddb4fb8e39ca",
+  "_resolved": "file:../d-116115-5060-281qbn.88rx06n7b9/package.tgz",
+  "_shasum": "867a8df6ce8b9a3002945607e68f7682a14ad568",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-13890-13t0rbm.61s1j7nwmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-13890-yv4r63.s7f6o5hfr",
+  "_spec": "/tmp/epse/d-116115-5060-281qbn.88rx06n7b9/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-116115-5060-il9ou4.3xveku766r",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"
@@ -249,7 +249,7 @@
       "MouseEvent"
     ]
   },
-  "version": "4.25.6",
+  "version": "4.25.7",
   "viewProviders": [
     "minimapViewProvider"
   ],

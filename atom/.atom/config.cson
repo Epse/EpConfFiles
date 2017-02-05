@@ -6,6 +6,8 @@
       spawnCount: {}
       totalCount: {}
     screenShake: {}
+  build:
+    saveOnBuild: true
   core:
     autoHideMenuBar: true
     disabledPackages: [
@@ -16,6 +18,7 @@
       "atom-autocomplete-php"
       "php-composer-completion"
     ]
+    telemetryConsent: "limited"
     themes: [
       "seti-ui"
       "monokai-shade"
@@ -30,9 +33,11 @@
   "exception-reporting":
     userId: "248d5cd4-e526-f3dd-7600-f7179658edca"
   "git-plus":
-    messageTimeout: 10
+    general:
+      _analyticsUserId: "7b2dd604-7e12-4b24-922b-4c49e62e610b"
   racer:
-    racerBinPath: "/home/epse/.cargo/bin/racer"
+    racerBinPath: "/sbin/racer"
+    rustSrcPath: "/usr/src/rust/src/"
   "seti-ui":
     compactView: true
     font: "Default Atom Font"

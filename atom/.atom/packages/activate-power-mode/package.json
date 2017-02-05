@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
+        "raw": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
-        "spec": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
+        "rawSpec": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
+        "spec": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-13597-yhr1vs.ij40qhyqfr"
+      "/tmp/epse/apm-install-dir-116115-4993-1e7hf8.uwi5dn29"
     ]
   ],
-  "_from": "../d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
-  "_id": "activate-power-mode@1.0.2",
+  "_from": "../d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
+  "_id": "activate-power-mode@1.1.0",
   "_inCache": true,
   "_location": "/activate-power-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
+    "raw": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
-    "spec": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
+    "rawSpec": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
+    "spec": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
-  "_shasum": "db4d42300c5d25a56810b14d941a827dafa455c9",
+  "_resolved": "file:../d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
+  "_shasum": "b183484661fd5b23c6e6c46c7a83cbaeced1e0c6",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-13597-12k10ac.3r4rxdpldi/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-13597-yhr1vs.ij40qhyqfr",
+  "_spec": "/tmp/epse/d-116115-4993-13c8v86.e53ykwewmi/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-116115-4993-1e7hf8.uwi5dn29",
   "author": {
     "name": "Joel Besada",
     "email": "joel@joelb.me",
@@ -67,7 +67,7 @@
     "type": "git",
     "url": "git+https://github.com/JoelBesada/activate-power-mode.git"
   },
-  "version": "1.0.2",
+  "version": "1.1.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

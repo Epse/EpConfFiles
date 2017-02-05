@@ -21,7 +21,7 @@
 #SUDOREDIRECT=1     # Define to 0 in case you use a fingerprint device
 
 # ABS
-#USE_GIT=0
+USE_GIT=1
 # If the package "abs" is installed, those var are parsed from abs.conf
 #REPOS=()           # REPOS available at $SYNCSERVER
 #SYNCSERVER=""
@@ -34,7 +34,7 @@
 #AURSHOWDIFF=0
 #AURUPGRADE=0
 #AURVOTE=1
-#AURUSEGIT=0
+AURUSEGIT=1
 
 # Build
 #EXPORT=0           # Export to 1: EXPORTDIR or PKGDEST
@@ -51,7 +51,7 @@ UP_NOCONFIRM=1     # No prompt while build upgrades (including -Sbu)
 #NOENTER=1
 
 # Output
-#USECOLOR=1
+USECOLOR=1
 #USEPAGER=0
 #DETAILUPGRADE=1
 #SHOWORPHANS=1

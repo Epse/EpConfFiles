@@ -38,10 +38,10 @@
   new_window pixel 2px
   workspace_auto_back_and_forth yes
 # Set orientation of next split
-  bindsym $mod+v split v
-  bindsym $mod+b split h
+  bindsym $mod+v split vertical
+  bindsym $mod+h split horizontal
 # Program Settings
-  bindsym $mod+Return exec urxvt
+  bindsym $mod+Return exec termite
   bindsym $mod+d exec rofi -show drun
   bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
   bindsym $mod+Shift+s exec scrot -s ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png
@@ -58,14 +58,14 @@
 # Window-Navigation Bindings
   bindsym $mod+Shift+p focus parent
   bindsym $mod+Shift+q kill
-  bindsym $mod+h focus left
-  bindsym $mod+j focus down
-  bindsym $mod+k focus up
-  bindsym $mod+l focus right
-  bindsym $mod+Shift+h move left
-  bindsym $mod+Shift+j move down
-  bindsym $mod+Shift+k move up
-  bindsym $mod+Shift+l move right
+  bindsym $mod+j focus left
+  bindsym $mod+k focus down
+  bindsym $mod+l focus up
+  bindsym $mod+m focus right
+  bindsym $mod+Shift+j move left
+  bindsym $mod+Shift+k move down
+  bindsym $mod+Shift+l move up
+  bindsym $mod+Shift+m move right
   bindsym $mod+Shift+space floating toggle
   bindsym $mod+f fullscreen toggle
   bindsym $mod+space focus mode_toggle
@@ -137,9 +137,11 @@
 
 # Program Workspace Assignments
   assign [class="banshee"] $workspace10
+  assign [class="play.google.com__music"] $workspace10
   assign [class="Firefox"] $workspace1
   assign [class="mutt"] $workspace8
   assign [class="Spotify"] $workspace10
+  assign [class="KeePass2"] $workspace4
 
 # Default to Floating
   for_window [class="Lxappearance"] floating enable
@@ -169,9 +171,9 @@
   }
 
 # Pulse Audio controls
-  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-  bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+  #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+  #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+  #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
   bindsym XF86AudioPlay exec playerctl play-pause
@@ -184,13 +186,14 @@
 
 # Startup
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
+  #exec_always --no-startup-id ~/.config/i3/.scripts/start_jack.sh
 
   # Dual Work Monitor
   #exec_always --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output HDMI-0 \
   #  --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 \
   #  --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
-  exec --no-startup-id compton -f --config ~/.config/i3/.compton.conf
+  exec --no-startup-id compton -f -b --config ~/.config/i3/.compton.conf
   exec i3-msg workspace $workspace1
   exec nohup firefox
   exec nm-applet
@@ -199,9 +202,11 @@
   exec --no-startup-id blueberry-tray &
   exec --no-startup-id pasystray &
   exec /usr/bin/dropbox &
+  exec redshift-gtk &
+  exec keepass &
 
 
 # Keyboard
-  exec_always setxkbmap -option "ctrl:swapcaps"
+  #exec_always setxkbmap -option "ctrl:swapcaps"
   exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   #exec_always xcape -e 'Control_L=Escape'

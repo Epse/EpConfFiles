@@ -24,6 +24,8 @@ class JediCompletion(object):
     def __init__(self):
         self.default_sys_path = sys.path
         self._input = io.open(sys.stdin.fileno(), encoding='utf-8')
+        self.devnull = open(os.devnull, 'w')
+        self.stdout, self.stderr = sys.stdout, sys.stderr
 
     def _get_definition_type(self, definition):
         is_built_in = definition.in_builtin_module
@@ -61,7 +63,7 @@ class JediCompletion(object):
     def _generate_signature(self, completion):
         """Generate signature with function arguments.
         """
-        if not hasattr(completion, 'params'):
+        if completion.type in ['module'] or not hasattr(completion, 'params'):
             return ''
         return '%s(%s)' % (
             completion.name,
@@ -252,7 +254,6 @@ class JediCompletion(object):
                 _definitions.append(_definition)
         return json.dumps({'id': identifier, 'results': _definitions})
 
-
     def _serialize_tooltip(self, definitions, identifier=None):
         _definitions = []
         for definition in definitions:
@@ -325,6 +326,8 @@ class JediCompletion(object):
     def _process_request(self, request):
         """Accept serialized request from Atom and write response.
         """
+        if not request:
+          return
         request = self._deserialize(request)
 
         self._set_request_config(request.get('config', {}))
@@ -360,16 +363,23 @@ class JediCompletion(object):
                                             request.get('prefix', '')))
 
     def _write_response(self, response):
+        sys.stdout = self.stdout
         sys.stdout.write(response + '\n')
         sys.stdout.flush()
 
     def watch(self):
         while True:
             try:
+                sys.stdout, sys.stderr = self.devnull, self.devnull
                 self._process_request(self._input.readline())
             except Exception:
+                sys.stderr = self.stderr
                 sys.stderr.write(traceback.format_exc() + '\n')
                 sys.stderr.flush()
 
 if __name__ == '__main__':
-    JediCompletion().watch()
+    if sys.argv[1:]:
+      for s in sys.argv[1:]:
+        JediCompletion()._process_request(s)
+    else:
+      JediCompletion().watch()

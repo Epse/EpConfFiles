@@ -1,3 +1,9 @@
+## 0.21.0
+* Support for atom 1.13 (fix deprecations)
+
+## 0.20.0
+* Support completion and goto on drupal 6/7 functions
+
 ## 0.19.0
 * Multiple bug fixes
 * Function's return value type hint parsed (PHP7)

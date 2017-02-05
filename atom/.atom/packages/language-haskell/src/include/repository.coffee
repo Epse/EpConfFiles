@@ -33,8 +33,6 @@ module.exports=
     patterns: [
         begin: /({maybeBirdTrack}[ \t]+)?(?=--+\s+[|^])/
         end: /(?!\G)/
-        beginCaptures:
-          1: name: 'punctuation.whitespace.comment.leading.haskell'
         patterns: [
             name: 'comment.line.double-dash.haddock.haskell'
             begin: /(--+)\s+([|^])/
@@ -51,8 +49,6 @@ module.exports=
         ###
         begin: /({maybeBirdTrack}[ \t]+)?(?=--+(?!{operatorChar}))/
         end: /(?!\G)/
-        beginCaptures:
-          1: name: 'punctuation.whitespace.comment.leading.haskell'
         patterns: [
             name: 'comment.line.double-dash.haskell'
             begin: /--/
@@ -77,6 +73,7 @@ module.exports=
     name: 'meta.declaration.exports.haskell'
     begin: /\(/
     end: /\)/
+    applyEndPatternLast: 1
     patterns: [
         include: '#comments'
       ,
@@ -176,6 +173,8 @@ module.exports=
       ,
         include: '#empty_list'
       ,
+        include: '#string'
+      ,
         name: 'keyword.other.arrow.haskell'
         match: '(?<!{operatorChar})(->|→)(?!{operatorChar})'
       ,
@@ -257,7 +256,7 @@ module.exports=
     begin: /{indentBlockStart}(class){rb}/
     end: /{lb}(where){rb}|{indentBlockEnd}/
     beginCaptures:
-      2: name: 'storage.type.class.haskell'
+      2: name: 'keyword.other.class.haskell'
     endCaptures:
       1: name: 'keyword.other.haskell'
     patterns: [
@@ -323,7 +322,7 @@ module.exports=
     begin: /{indentBlockStart}(data|newtype)\s+((?:(?!=|where).)*)/
     end: /{indentBlockEnd}/
     beginCaptures:
-      2: name: 'storage.type.data.haskell'
+      2: name: 'keyword.other.data.haskell'
       3:
         name: 'meta.type-signature.haskell'
         patterns: [
@@ -371,7 +370,7 @@ module.exports=
     end: /{indentBlockEnd}/
     contentName: 'meta.type-signature.haskell'
     beginCaptures:
-      2: name: 'storage.type.data.haskell'
+      2: name: 'keyword.other.type.haskell'
     patterns: [
         {include: '#comments'}
         {include: '#family_and_instance'}
@@ -383,7 +382,7 @@ module.exports=
     name: 'keyword.other.haskell'
     match: /{lb}(deriving|where|data|type|newtype){rb}/
   ,
-    name: 'storage.type.haskell'
+    name: 'keyword.other.haskell'
     match: /{lb}(data|type|newtype){rb}/
   ,
     name: 'keyword.operator.haskell'

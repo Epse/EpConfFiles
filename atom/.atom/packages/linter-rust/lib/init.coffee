@@ -49,6 +49,10 @@ module.exports =
       type: 'boolean'
       default: false
       description: "Lint test code, when using `rustc`"
+    allowedToCacheVersions:
+      type: 'boolean'
+      default: true
+      description: "Uncheck this if you need to change toolchains during one Atom session. Otherwise toolchains' versions are saved for an entire Atom session to increase performance."
 
 
   activate: ->
@@ -58,7 +62,7 @@ module.exports =
   provideLinter: ->
     LinterRust = require('./linter-rust')
     @provider = new LinterRust()
-    return {
+    {
       name: 'Rust'
       grammarScopes: ['source.rust']
       scope: 'project'

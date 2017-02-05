@@ -8,7 +8,7 @@ module.exports=
   classNameOne: /[\p{Lu}\p{Lt}]{identCharClass}*/
   functionName: /(?:{className}\.)?{functionNameOne}/
   className: /{classNameOne}(?:\.{classNameOne})*/
-  operatorChar: /[\p{S}\p{P}&&[^(),;\[\]`{}_"']]/
+  operatorChar: '(?:[\\p{S}\\p{P}](?<![(),;\\[\\]`{}_"\']))'
   ###
   In case this regex seems overly general, note that Haskell
   permits the definition of new operators which can be nearly any string
@@ -31,7 +31,7 @@ module.exports=
     ///
   octalChar: /(?:\\o[0-7]+)/
   hexChar: /(?:\\x[0-9A-Fa-f]+)/
-  controlChar: /(?:\^[A-Z@\[\]\\\^_])/
+  controlChar: /(?:\\\^[A-Z@\[\]\\^_])/
   character: '(?:{basicChar}|{escapeChar}|{octalChar}|{hexChar}|{controlChar}|{operatorChar})'
   functionTypeDeclaration:
     concat list(/{functionName}|{operatorFun}/, /\s*,\s*/),

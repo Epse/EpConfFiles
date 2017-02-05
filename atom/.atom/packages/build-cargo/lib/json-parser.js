@@ -6,6 +6,8 @@
 
 const err = require('./errors');
 
+import marked from 'marked';
+
 // Copies a location from the given span to a linter message
 function copySpanLocation(span, msg) {
   msg.file = span.file_name;
@@ -61,7 +63,12 @@ function parseSpans(jsonObj, msg, mainMsg) {
 
 // Parses a compile message in the JSON format
 const parseMessage = (line, messages) => {
-  const json = JSON.parse(line);
+  const json = JSON.parse(line).message;
+  if (!json || !json.level) {
+    // It's a cargo general message, not a compiler's one. Skip it.
+    // In the future can be changed to "reason !== 'compiler-message'"
+    return;
+  }
   const msg = {
     message: json.message,
     type: err.level2type(json.level),
@@ -75,6 +82,7 @@ const parseMessage = (line, messages) => {
       message: child.message,
       type: err.level2type(child.level),
       severity: err.level2severity(child.level),
+      trace: [],
       extra: {}
     };
     parseSpans(child, tr, msg);
@@ -84,7 +92,7 @@ const parseMessage = (line, messages) => {
     msg.extra.errorCode = json.code.code;
     if (json.code.explanation) {
       msg.trace.push({
-        message: json.code.explanation,
+        html_message: '<details><summary>Expand to see the detailed explanation</summary>' + marked(json.code.explanation) + '</details>',
         type: 'Explanation',
         severity: 'info',
         extra: {}

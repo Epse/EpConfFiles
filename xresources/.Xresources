@@ -77,7 +77,7 @@ URxvt.color19:      base02
 urxvt*depth: 32
 urxvt*background: rgba:0000/0000/0200/c800
 
-URxvt.font: xft:Input Mono:size=9
+URxvt.font: xft:Knack Nerd Font:size=9
 ! URxvt.letterSpace:-5
 Xft.dpi:        100
 Xft.antialias:  true

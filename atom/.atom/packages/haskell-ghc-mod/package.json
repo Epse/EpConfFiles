@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
+        "raw": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
-        "spec": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
+        "rawSpec": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
+        "spec": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-21815-1t9vrj3.ajz90y66r"
+      "/tmp/epse/apm-install-dir-117015-23556-1tbk5p1.to2e0tqpvi"
     ]
   ],
-  "_from": "../d-116925-21815-1622j97.01gtceg66r/package.tgz",
-  "_id": "haskell-ghc-mod@1.19.0",
+  "_from": "../d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
+  "_id": "haskell-ghc-mod@1.19.4",
   "_inCache": true,
   "_location": "/haskell-ghc-mod",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
+    "raw": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
-    "spec": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
+    "rawSpec": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
+    "spec": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-21815-1622j97.01gtceg66r/package.tgz",
-  "_shasum": "1e8bee2fd18eb2ad970148c3183f37fc807bb8b2",
+  "_resolved": "file:../d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
+  "_shasum": "ca9612d3fea7fc9f4eb532b2ffcd73585b29f85d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-21815-1622j97.01gtceg66r/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-21815-1t9vrj3.ajz90y66r",
+  "_spec": "/tmp/epse/d-117015-23556-zf1gjs.ehgjtyy14i/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-117015-23556-1tbk5p1.to2e0tqpvi",
   "activationHooks": [
     "language-haskell:grammar-used"
   ],
@@ -95,7 +95,7 @@
     "type": "git",
     "url": "git+https://github.com/atom-haskell/haskell-ghc-mod.git"
   },
-  "version": "1.19.0",
+  "version": "1.19.4",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

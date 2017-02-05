@@ -39,7 +39,7 @@ describe 'Record', ->
           "scopes": [
             "source.haskell",
             "meta.declaration.type.data.haskell",
-            "storage.type.data.haskell"
+            "keyword.other.data.haskell"
           ]
         },
         {
@@ -396,7 +396,7 @@ describe 'Record', ->
                 "scopes": [
                   "source.haskell",
                   "meta.declaration.type.data.haskell",
-                  "storage.type.data.haskell"
+                  "keyword.other.data.haskell"
                 ]
               },
               {
@@ -576,8 +576,7 @@ describe 'Record', ->
                   "meta.declaration.type.data.haskell",
                   "meta.declaration.type.data.record.block.haskell",
                   "meta.record-field.type-declaration.haskell",
-                  "meta.type-signature.haskell",
-                  "punctuation.whitespace.comment.leading.haskell"
+                  "meta.type-signature.haskell"
                 ]
               },
               {
@@ -760,7 +759,7 @@ describe 'Record', ->
             "scopes": [
               "source.haskell",
               "meta.declaration.type.data.haskell",
-              "storage.type.data.haskell"
+              "keyword.other.data.haskell"
             ]
           },
           {
@@ -833,8 +832,7 @@ describe 'Record', ->
             "scopes": [
               "source.haskell",
               "meta.declaration.type.data.haskell",
-              "meta.declaration.type.data.record.block.haskell",
-              "punctuation.whitespace.comment.leading.haskell"
+              "meta.declaration.type.data.record.block.haskell"
             ]
           },
           {

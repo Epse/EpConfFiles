@@ -2,43 +2,45 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
+        "raw": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
-        "spec": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
+        "rawSpec": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
+        "spec": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116925-13652-qv4jnv.c6ll434n29"
+      "/tmp/epse/apm-install-dir-11709-25046-wwis9t.xkm6o2mx6r"
     ]
   ],
-  "_from": "../d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
-  "_id": "build-cargo@0.19.0",
+  "_from": "../d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
+  "_id": "build-cargo@1.2.0",
   "_inCache": true,
   "_location": "/build-cargo",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
+    "raw": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
-    "spec": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
+    "rawSpec": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
+    "spec": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
-  "_shasum": "aee885c040db4bd0b77ef6249ad712058c8f20e2",
+  "_resolved": "file:../d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
+  "_shasum": "0a8153e64553be24aaa4ddc36a3dcd20f8cc805c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116925-13652-11gwlrt.o1p8mbcsor/package.tgz",
-  "_where": "/tmp/apm-install-dir-116925-13652-qv4jnv.c6ll434n29",
+  "_spec": "/tmp/epse/d-11709-25046-1d5jvhd.cc8650cnmi/package.tgz",
+  "_where": "/tmp/epse/apm-install-dir-11709-25046-wwis9t.xkm6o2mx6r",
   "bugs": {
     "url": "https://github.com/AtomBuild/atom-build-cargo/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "marked": "^0.3.6"
+  },
   "description": "Runs Cargo targets",
   "devDependencies": {
     "atom-build-spec-helpers": "^0.4.0",
@@ -77,22 +79,46 @@
     "type": "git",
     "url": "git+https://github.com/AtomBuild/atom-build-cargo.git"
   },
-  "version": "0.19.0",
+  "version": "1.2.0",
   "_atomModuleCache": {
     "version": 1,
-    "dependencies": [],
+    "dependencies": [
+      {
+        "name": "marked",
+        "version": "0.3.6",
+        "path": "node_modules/marked/lib/marked.js"
+      }
+    ],
     "extensions": {
       ".js": [
         "lib/cargo.js",
         "lib/errors.js",
         "lib/json-parser.js",
         "lib/panic-parser.js",
-        "lib/std-parser.js"
+        "lib/std-parser.js",
+        "node_modules/marked/Gulpfile.js",
+        "node_modules/marked/index.js",
+        "node_modules/marked/lib/marked.js",
+        "node_modules/marked/marked.min.js"
       ],
       ".json": [
+        "node_modules/marked/bower.json",
+        "node_modules/marked/component.json",
+        "node_modules/marked/package.json",
         "package.json"
       ]
     },
-    "folders": []
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "marked": "^0.3.6"
+        }
+      }
+    ]
   }
 }
