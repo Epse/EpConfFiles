@@ -1,1 +1,0 @@
-{"source":"@keyframes grow {\n  0% {\n    animation-timing-function: ease-out;\n  }\n  50% {\n    transform: scale(1.3);\n    animation-timing-function: ease-in;\n  }\n}\n@keyframes exclamation {\n  100% {\n    opacity: 0;\n    transform: translate3D(0, 100px, 0);\n  }\n}\n"}

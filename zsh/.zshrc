@@ -2,11 +2,9 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-export GOPATH=/home/epse/Documents/Programming/Go
+#export GOPATH=/home/epse/Documents/Programming/Go
 
-# User configuration
-
-  export PATH="$PATH:/home/epse/.gem/ruby/2.3.0/bin:$GOPATH/bin"
+export PATH="$PATH:/home/epse/.gem/ruby/2.4.0/bin:$GOPATH/bin:/home/epse/.gem/ruby/2.4.0/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -15,6 +13,14 @@ export GOPATH=/home/epse/Documents/Programming/Go
 export EDITOR=vim
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PAGER=vimpager
+
+# Damn these are so useful
+autoload -U zcalc zmv
+
+# essentially aliases cd to pushd
+setopt AUTO_PUSHD
+# empty pushd goes to home
+setopt PUSHD_TO_HOME
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -66,3 +72,11 @@ mkcd () {
 		esac
 	fi
 }
+
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
+# How is this the last line
+bindkey -v
+export KEYTIMEOUT=1
+bindkey -M vicmd "q" push-line

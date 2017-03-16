@@ -1,9 +1,0 @@
-App load time: 3691ms
-
-(electron:9140): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
-
-(electron:9140): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
-
-(electron:9140): Gdk-WARNING **: gdkwindow-x11.c:5554 drawable is not a native X11 window
-Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
-Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.

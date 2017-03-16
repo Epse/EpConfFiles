@@ -1,1 +1,0 @@
-{"source":".line-numbers {\n  margin: 0 .5em;\n}\natom-text-editor .wrap-guide {\n  height: 100%;\n  width: 1px;\n  z-index: 3;\n  position: absolute;\n  top: 0;\n  background-color: rgba(200, 255, 50, 0.03);\n  -webkit-transform: translateZ(0);\n}\n"}
