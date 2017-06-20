@@ -6,4 +6,4 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 xrdb -merge ~/.Xresources &
 wmacpi &
-
+~/.fehbg
