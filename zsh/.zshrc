@@ -1,32 +1,79 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-#export GOPATH=/home/epse/Documents/Programming/Go
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH="$PATH:/home/epse/.gem/ruby/2.4.0/bin:$GOPATH/bin:/home/epse/.gem/ruby/2.4.0/bin"
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/epse/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR=vim
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export PAGER=vimpager
-
-# Damn these are so useful
-autoload -U zcalc zmv
-
-# essentially aliases cd to pushd
-setopt AUTO_PUSHD
-# empty pushd goes to home
-setopt PUSHD_TO_HOME
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -36,48 +83,3 @@ setopt PUSHD_TO_HOME
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias sps='sudo pacman -S'
-alias acs='apt-cache search'
-alias acsh='apt-cache show'
-alias svim='sudo vim'
-alias sagr='sudo apt-get remove'
-alias sagp='sudo apt-get purge'
-alias -g dbx='~/Dropbox'
-alias -g fndin='| grep -i '
-alias -g fndsn='| grep  '
-alias e=$EDITOR
-alias x=exit
-alias dirs='dirs -v'
-
-eval $(keychain --agents ssh --eval --quiet id_ed25519 id_rsa)
-
-mkcd () {
-	if ["$2" == "-p"]; then
-		case "$1" in
-			*/..|*/../) cd -- "$1";; # that doesn't make any sense unless the directory already exists
-			/*/../*) (cd "${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd -- "$1";;
-			/*) mkdir -p "$1" && cd "$1";;
-			*/../*) (cd "./${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd "./$1";;
-			../*) (cd .. && mkdir -p "${1#.}") && cd "$1";;
-			*) mkdir -p "./$1" && cd "./$1";;
-		esac
-	else
-		case "$1" in
-			*/..|*/../) cd -- "$1";; # that doesn't make any sense unless the directory already exists
-			/*/../*) (cd "${1%/../*}/.." && mkdir "./${1##*/../}") && cd -- "$1";;
-			/*) mkdir "$1" && cd "$1";;
-			*/../*) (cd "./${1%/../*}/.." && mkdir "./${1##*/../}") && cd "./$1";;
-			../*) (cd .. && mkdir "${1#.}") && cd "$1";;
-			*) mkdir "./$1" && cd "./$1";;
-		esac
-	fi
-}
-
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
-# How is this the last line
-bindkey -v
-export KEYTIMEOUT=1
-bindkey -M vicmd "q" push-line
-eval $(thefuck --alias)
