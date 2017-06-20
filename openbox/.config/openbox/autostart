@@ -1,5 +1,0 @@
-stalonetray --dockapp-mode &
-nm-applet
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
-xrdb -merge ~/.Xresources &
