@@ -49,7 +49,7 @@ alias e=$EDITOR
 alias x=exit
 alias dirs='dirs -v'
 
-eval $(keychain --agents ssh --eval --quiet id_ed25519 id_rsa)
+eval $(keychain --agents ssh,gpg --eval --quiet id_ed25519 id_rsa C74B4EB0)
 
 mkcd () {
 	if ["$2" == "-p"]; then
@@ -80,4 +80,3 @@ bindkey "^[s" insert-sudo
 bindkey -v
 export KEYTIMEOUT=1
 bindkey -M vicmd "q" push-line
-eval $(thefuck --alias)

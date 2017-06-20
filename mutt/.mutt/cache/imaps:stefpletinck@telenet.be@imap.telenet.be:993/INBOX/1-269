@@ -1,0 +1,219 @@
+Return-Path: helpdesk@keymusic.com
+Received: from bernard.telenet-ops.be (LHLO bernard.telenet-ops.be)
+ (195.130.137.85) by zcsnocm51.telenet-ops.be with LMTP; Fri, 26 Aug 2016
+ 21:03:26 +0200 (CEST)
+Received: from out8.pod6.iad1.zdsys.com ([192.161.153.107])
+	by bernard.telenet-ops.be with bizsmtp
+	id bv3R1t00e2KHYvU01v3SEU; Fri, 26 Aug 2016 21:03:26 +0200
+X-Spamcause: gggruggvucftvghtrhhoucdtuddrfeeluddrgedtgdduvdefucdltddurdefledtrddttddmucetufdoteggodetrfcurfhrohhfihhlvgemuchtvghlvghnvghtrdgsvgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhrhfvkfgjufggtgfgofesrgejreerredtjeenucfhrhhomhepmffgjgfofgfukfevuceohhgvlhhpuggvshhksehkvgihmhhushhitgdrtghomheqnecuffhomhgrihhnpehkvgihmhhushhitgdrtghomhdpiigvnhguvghskhdrtghomh
+Delivered-To: stefpletinck@telenet.be
+Received: from zendesk.com (work1.pod6.iad1.zdsys.com [10.112.38.11])
+	by out8.pod6.iad1.zdsys.com (Postfix) with ESMTP id DEE846D5
+	for <stefpletinck@telenet.be>; Fri, 26 Aug 2016 19:03:24 +0000 (UTC)
+Date: Fri, 26 Aug 2016 19:03:24 +0000
+From: KEYMUSIC <helpdesk@keymusic.com>
+Reply-To: KEYMUSIC <helpdesk@keymusic.com>
+To: Stef Pletinck <stefpletinck@telenet.be>
+Message-ID: <NZQZOLK0Z6_57c0927c844d1_a2d33f9a848cd32857164f_sprut@zendesk.com>
+In-Reply-To: <NZQZOLK0Z6@zendesk.com>
+Subject: Bericht ontvangen: Keyboard
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_57c0927cd8793_a2d33f9a848cd32857181f";
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Auto-Response-Suppress: All
+Auto-Submitted: auto-generated
+X-Mailer: Zendesk Mailer
+X-Delivery-Context: event-id-152750112908
+X-Zendesk-From-Account-Id: 7634034
+DKIM-Signature:  v=1; a=rsa-sha256; c=relaxed/relaxed; d=keymusic.com;
+ q=dns/txt; s=zendesk1; t=1472238204;
+ bh=zcK++sC4HqZnDPI6dKNc+42rfiRCg2egt+/Yn52Dbrk=;
+ h=date:from:reply-to:to:message-id:in-reply-to:subject:mime-version:content-type:content-transfer-encoding;
+ b=y3gs7mPoNRtykarYA/A2Hcc6YgJiE+B1e7Dvsdw5rdFlDSdeFQJevn+Z7J/J9nCqKnc5AdHLJfjkYTnWMXtOoXlcMn5Flwnqp4j9G/qdaPWjZLzw/KCVKKRYlPJaGCj2CEwFYPGCJXS+ugsjNKaB3gPqwvpoYB1IupufMVBzXWo=
+DKIM-Signature:  v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmailmarkup.zendesk.com; q=dns/txt; s=zendesk1; t=1472238204;
+ bh=zcK++sC4HqZnDPI6dKNc+42rfiRCg2egt+/Yn52Dbrk=;
+ h=date:from:reply-to:to:message-id:in-reply-to:subject:mime-version:content-type:content-transfer-encoding;
+ b=KT/EKQhtCwv6rIW0SfOxGM7L7/miyzakQzdk847gb6jA6IxvKsBEwxZUp8DgGifVx0BJkUfSXN6tiDE9Oj/ANAD44ZDmjXpYFT4xOmXrxR1irCKaX2McxgHfgP+skHnkA6MzFydx8xZ9JE862lR9UzLL7y60kYOfQK1KgTWOcZk=
+X-CMAE-Score: 0
+X-CMAE-Analysis: v=2.1 cv=Ab9MZCjG c=1 sm=1 tr=0
+	a=gdvue+LHSuc5Bkx/CwVtvg==:117 a=L9H7d07YOLsA:10 a=9cW_t1CCXrUA:10
+	a=s5jvgZ67dGcA:10 a=KiCxJD0x+Pe5VASQKmYoJrcyuOo=:19 a=IkcTkHD0fZMA:10
+	a=6L66Op2UAAAA:8 a=NvrWBn54mwyZ4FeZ9PsA:9 a=WQo1WWuD_VTJqHoE:21
+	a=KNABj5R_6IVk0VVg:21 a=QEXdDO2ut3YA:10 a=Do0LrQhi5FAA:10 a=AxTCswu-AAAA:8
+	a=A-Ay9Xv3AAAA:8 a=TeuQqM9sAAAA:8 a=SSmOFEACAAAA:8 a=eRlqnC1HUhp0PPqxSrcA:9
+	a=kBL4IbMDRQ4uEjUj:21 a=1rXL2NSu_sXYyy82:21 a=k5RBa9WlnrEejkiZ:21
+	a=_W_S_7VecoQA:10 a=frz4AuCg-hUA:10 a=p403mkujtbAA:10
+	a=SV9ERO3em8xSG1JjtynT:22 a=grImUnVaQDeKGm2TToIA:22
+	a=e7TI1aA-UvBIeUnWv3ue:22 a=e177VXkoA7pnmra_KuOY:22
+	a=zjWhRoSqWz9hl55Hdlzg:22
+
+
+----==_mimepart_57c0927cd8793_a2d33f9a848cd32857181f
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+##- Typ uw reactie boven deze regel -##
+
+Beste Stef Pletinck,
+ =
+
+Bedankt voor uw bericht. We hebben uw aanvraag ontvangen en streven ernaa=
+r om u binnen 24 uur een terugkoppeling te geven.
+Om extra commentaar toe te voegen, kunt u antwoorden op deze e-mail.
+
+Met vriendelijke groet,
+Het KEYMUSIC team
+
+KEYMUSIC
+helpdesk.be@keymusic.com
+Tel. 037 66 63 93
+
+------------------------------------
+KLANTENSERVICE
+www.keymusic.com/be/klantenservice
+
+ONTDEK ONZE WINKELS
+www.keymusic.com/be/muziekwinkels
+
+MAAK EEN VIRTUELE RONDLEIDING
+www.keymusic.com/be/over-ons/virtuele-tour
+
+KEYMUSIC MAGAZINE
+www.keymusic.com/be/magazine
+
+EVENEMENTEN, CLINICS & WORKSHOPS
+www.keymusic.com/be/evenementen
+------------------------------------
+
+----------------------------------------------
+
+Stef Pletinck, 26 aug. 21:03 CEST
+
+NAME: Stef Pletinck
+EMAIL: stefpletinck@telenet.be
+TELEPHONE NUMBER: 0484228345
+COUNTRY: Belgi=C3=AB
+IP ADDRESS: 78.22.94.4
+IP COUNTRY: Belgium
+URL: http://www.keymusic.com/be/winkel/accessoires-voor-keyboard-en-piano=
+/
+
+MESSAGE: =
+
+Beste
+
+Ik was van plan een Yamaha PSR-EW400 te kopen. Helaas telt de studentenac=
+tie niet op die grotere model, dus was ik op zoek naar een statief en een=
+ pedaal. Heeft u hiervoor enige suggesties?
+Kunt hier dan ook een prijs voor maken, gezien de studentenbundel?
+
+
+
+
+
+
+
+
+
+[NZQZOL-K0Z6]=
+
+----==_mimepart_57c0927cd8793_a2d33f9a848cd32857181f
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww=
+w.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+" />
+  <style type=3D"text/css">
+    table td {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body style=3D"width: 100%!important; margin: 0; padding: 0;">
+  <div style=3D"padding: 10px ; line-height: 18px; font-family: 'Lucida G=
+rande',Verdana,Arial,sans-serif; font-size: 12px; color:#444444;">
+    <div style=3D"color: #b5b5b5;">##- Typ uw reactie boven deze regel -#=
+#</div>
+    <p>Beste Stef Pletinck,<br /><br />Bedankt voor uw bericht. We hebben=
+ uw aanvraag ontvangen en streven ernaar om u binnen 24 uur een terugkopp=
+eling te geven.<br />Om extra commentaar toe te voegen, kunt u antwoorden=
+ op deze e-mail.</p><p>Met vriendelijke groet,<br />Het KEYMUSIC team</p>=
+<p>KEYMUSIC<br />helpdesk.be@keymusic.com<br />Tel. 037 66 63 93</p><p>--=
+----------------------------------<br />KLANTENSERVICE<br /><a href=3D"ht=
+tp://www.keymusic.com/be/klantenservice" rel=3D"noreferrer">www.keymusic.=
+com/be/klantenservice</a></p><p>ONTDEK ONZE WINKELS<br /><a href=3D"http:=
+//www.keymusic.com/be/muziekwinkels" rel=3D"noreferrer">www.keymusic.com/=
+be/muziekwinkels</a></p><p>MAAK EEN VIRTUELE RONDLEIDING<br /><a href=3D"=
+http://www.keymusic.com/be/over-ons/virtuele-tour" rel=3D"noreferrer">www=
+.keymusic.com/be/over-ons/virtuele-tour</a></p><p>KEYMUSIC MAGAZINE<br />=
+<a href=3D"http://www.keymusic.com/be/magazine" rel=3D"noreferrer">www.ke=
+ymusic.com/be/magazine</a></p><p>EVENEMENTEN, CLINICS &amp; WORKSHOPS<br =
+/><a href=3D"http://www.keymusic.com/be/evenementen" rel=3D"noreferrer">w=
+ww.keymusic.com/be/evenementen</a><br />---------------------------------=
+---</p><p></p><div style=3D"margin-top: 25px" data-version=3D"2"><table w=
+idth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td wi=
+dth=3D"100%" style=3D"padding: 15px 0; border-top: 1px dotted #c5c5c5;"> =
+     <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D" table-layout:fixed;"><tr><td valign=3D"top" style=3D"padding=
+: 0 15px 0 15px;width: 40px;">              <img alt=3D"Stef Pleti" heigh=
+t=3D"40" src=3D"http://www.gravatar.com/avatar/f3d8f160419c0b56e9aa9752a2=
+3e2536?size=3D40&amp;default=3Dhttps%3A%2F%2Fassets.zendesk.com%2Fimages%=
+2F2016%2Fdefault-avatar-80.png&amp;r=3Dg" style=3D"height: auto; line-hei=
+ght: 100%; outline: none; text-decoration: none; -webkit-border-radius: 5=
+px; -moz-border-radius: 5px; border-radius: 5px;" width=3D"40" /></td>   =
+                 <td width=3D"100%" style=3D"padding: 0; margin: 0;" vali=
+gn=3D"top">            <p style=3D"font-family: 'Lucida Grande','Lucida S=
+ans Unicode','Lucida Sans',Verdana,Tahoma,sans-serif; font-size: 15px; li=
+ne-height: 18px; margin-bottom: 0; margin-top: 0; padding: 0; color:#1b1d=
+1e;">                              <strong>Stef Pletinck</strong>        =
+                  </p>            <p style=3D"font-family: 'Lucida Grande=
+','Lucida Sans Unicode','Lucida Sans',Verdana,Tahoma,sans-serif; font-siz=
+e: 13px; line-height: 25px; margin-bottom: 15px; margin-top: 0; padding: =
+0; color:#bbbbbb;">              26 aug. 21:03 CEST            </p>      =
+                              <div class=3D"zd-comment" style=3D"color: #=
+2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Ve=
+rdana, sans-serif; font-size: 14px; line-height: 22px; margin: 15px 0"><p=
+ style=3D"color: #2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Gra=
+nde', 'Tahoma', Verdana, sans-serif; font-size: 14px; line-height: 22px; =
+margin: 15px 0" dir=3D"auto">NAME: Stef Pletinck<br />EMAIL: <a href=3D"m=
+ailto:stefpletinck@telenet.be" rel=3D"noreferrer">stefpletinck@telenet.be=
+</a><br />TELEPHONE NUMBER: 0484228345<br />COUNTRY: Belgi=C3=AB<br />IP =
+ADDRESS: 78.22.94.4<br />IP COUNTRY: Belgium<br />URL: <a href=3D"http://=
+www.keymusic.com/be/winkel/accessoires-voor-keyboard-en-piano/" rel=3D"no=
+follow noreferrer" target=3D"_blank">http://www.keymusic.com/be/winkel/ac=
+cessoires-voor-keyboard-en-piano/</a></p><p style=3D"color: #2b2e2f; font=
+-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-=
+serif; font-size: 14px; line-height: 22px; margin: 15px 0" dir=3D"auto">M=
+ESSAGE: <br />Beste</p><p style=3D"color: #2b2e2f; font-family: 'Lucida S=
+ans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: =
+14px; line-height: 22px; margin: 15px 0" dir=3D"auto">Ik was van plan een=
+ Yamaha PSR-EW400 te kopen. Helaas telt de studentenactie niet op die gro=
+tere model, dus was ik op zoek naar een statief en een pedaal. Heeft u hi=
+ervoor enige suggesties?<br />Kunt hier dan ook een prijs voor maken, gez=
+ien de studentenbundel?</p></div>                                  </td> =
+       </tr></table></td>  </tr></table></div>
+    <div style=3D"color: #aaaaaa; margin: 10px 0 14px 0; padding-top: 10p=
+x; border-top: 1px solid #eeeeee;">
+     Dit e-mailbericht is een service van KEYMUSIC.  Delivered by <a href=
+=3D"http://www.zendesk.com" style=3D"color:black" target=3D"_new">Zendesk=
+</a>.
+    </div>
+  </div>
+<span style=3D'color:#FFFFFF'>[NZQZOL-K0Z6]</span></body>
+</html>
+<div itemscope itemtype=3D"http://schema.org/EmailMessage" style=3D"displ=
+ay:none">  <div itemprop=3D"action" itemscope itemtype=3D"http://schema.o=
+rg/ViewAction">    <link itemprop=3D"url" href=3D"https://keymusic.zendes=
+k.com/hc/requests/177209" />    <meta itemprop=3D"name" content=3D"Ticket=
+ weergeven"/>  </div></div>=
+
+----==_mimepart_57c0927cd8793_a2d33f9a848cd32857181f--
