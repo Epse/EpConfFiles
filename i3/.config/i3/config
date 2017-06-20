@@ -195,7 +195,7 @@
 
 # Keyboard
   exec_always setxkbmap -option "ctrl:swapcaps"
-  exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
+  #exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   #exec_always xcape -e 'Control_L=Escape'
 
   exec --no-startup-id compton -f -b --config ~/.config/i3/.compton.conf
