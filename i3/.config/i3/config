@@ -41,8 +41,8 @@
   bindsym $mod+v split vertical
   bindsym $mod+h split horizontal
 # Program Settings
-  bindsym $mod+Return exec termite
-  bindsym $mod+d exec rofi -show drun
+  bindsym $mod+Return exec gnome-terminal
+  bindsym $mod+d exec dmenu_run
   bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
   bindsym $mod+Shift+s exec scrot -s ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png
 # exit i3 (logs you out of your X session)
@@ -181,8 +181,8 @@
   bindsym XF86AudioPrev exec playerctl previous
 
 ## Screen brightness controls
-  # bindsym XF86MonBrightnessUp exec $HOME/.scripts/brightness +10
-  # bindsym XF86MonBrightnessDown exec $HOME/.scripts/brightness -10
+  bindsym XF86MonBrightnessUp exec sudo /bin/bash $HOME/.scripts/brightness +10
+  bindsym XF86MonBrightnessDown exec sudo /bin/bash $HOME/.scripts/brightness -10
 
 # Startup
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg

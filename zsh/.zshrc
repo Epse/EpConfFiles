@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/epse/.oh-my-zsh
+  export ZSH=/home/e/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -81,10 +78,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export GOPATH=/home/epse/Documents/Programming/Go/
-export PATH=$PATH:/home/epse/.gem/ruby/2.3.0/bin:$GOPATH/bin
-export EDITOR=vim
-export PAGER=vimpager
+export GOPATH=/home/e/Documents/programming/Go/
+export PATH=$PATH:/home/e/.gem/ruby/2.3.0/bin:$GOPATH/bin
+export EDITOR=vi
 alias x=exit
 alias dirs='dirs -v'
-eval $(keychain --agents ssh --eval --quiet id_ed25519 id_rsa)
+eval $(keychain --agents ssh --eval --quiet id_rsa)
+eval $(thefuck --alias)
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
