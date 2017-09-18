@@ -31,6 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
+     rust
+     yaml
      sql
      html
      go
@@ -44,6 +47,7 @@ values."
      better-defaults
      emacs-lisp
      git
+     extra-langs
      markdown
      org
      (shell :variables
@@ -303,9 +307,46 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (require 'org)
+  (require 'ob-python)
+  (require 'ob-clojure)
+  (require 'ob-perl)
+  (require 'ob-dot)
+  (require 'ob-go)
+  (require 'ob-R)
+  (require 'ob-gnuplot)
+  (require 'ob-lisp)
+  (require 'ob-org)
+  (require 'ob-screen)
+  (require 'ob-calc)
+  (require 'ob-js)
+  (require 'ob-latex)
+  (require 'ob-plantuml)
+  (require 'ob-sh)
+  (require 'ob-ditaa)
+  (require 'ob-awk)
+  (require 'ob-octave)
+  (require 'ob-sed)
+  (require 'ob-sql)
+  (require 'ob-sqlite)
   (require 'ox-latex)
-  (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
-  )
+
+ ;; (with-eval-after-load 'ox-latex
+ ;;   ;; Settings to export code with `minted' instead of `verbatim'.
+ ;;   (setq org-export-latex-listings t)
+ ;;   (setq org-latex-listings 'minted
+ ;;         org-latex-packages-alist '(("" "minted")))
+ ;;   (setq org-latex-pdf-process
+ ;;         '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+ ;;           "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+ ;;           "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+ ;;   )
+
+ (add-to-list 'org-latex-packages-alist '("" "listingsutf8"))
+ (setq org-latex-listings 'listingsutf8)
+
+ (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -326,9 +367,16 @@ you should place your code here."
      ("t" "A simple todo" entry
       (file+headline "~/Dropbox/Documents/Org/2017.org" "INBOX")
       (file "~/Dropbox/Documents/Org/templates/task.tmpl.txt")))))
+ '(org-latex-listings (quote minted))
+ '(org-latex-packages-alist (quote (("newfloat" "minted" nil))))
+ '(org-latex-pdf-process
+   (quote
+    ("%latex -shell-escape -interaction nonstopmode -output-directory %o %f" "%latex -shell-escape -interaction nonstopmode -output-directory %o %f" "%latex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+ '(org-log-done-with-time t)
+ '(org-todo-keywords (quote ((sequence "TODO" "BUY" "|" "DONE" "BOUGHT"))))
  '(package-selected-packages
    (quote
-    (sql-indent winum unfill fuzzy xterm-color shell-pop go-autocomplete web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data mwim multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor diff-hl company-statistics company-go company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete go-guru go-eldoc go-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic cargo toml-mode racer flycheck-rust seq rust-mode yaml-mode wolfram-mode thrift stan-mode scad-mode qml-mode matlab-mode julia-mode arduino-mode sql-indent winum unfill fuzzy xterm-color shell-pop go-autocomplete web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data mwim multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor diff-hl company-statistics company-go company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete go-guru go-eldoc go-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

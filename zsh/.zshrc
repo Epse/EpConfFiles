@@ -78,13 +78,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export GOPATH=/home/e/Documents/programming/Go/
-export PATH=$PATH:/home/e/.gem/ruby/2.3.0/bin:$GOPATH/bin
 export EDITOR=vi
 alias x=exit
 alias dirs='dirs -v'
 eval $(keychain --agents ssh --eval --quiet id_rsa)
 eval $(thefuck --alias)
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
