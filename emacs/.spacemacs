@@ -331,6 +331,7 @@ you should place your code here."
   (require 'ob-sqlite)
   (require 'ox-latex)
 
+ ;; all this bullshit is now unnecessary thanks to the values being set via Customize... cause this no work
  ;; (with-eval-after-load 'ox-latex
  ;;   ;; Settings to export code with `minted' instead of `verbatim'.
  ;;   (setq org-export-latex-listings t)
@@ -341,9 +342,6 @@ you should place your code here."
  ;;           "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
  ;;           "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  ;;   )
-
- (add-to-list 'org-latex-packages-alist '("" "listingsutf8"))
- (setq org-latex-listings 'listingsutf8)
 
  (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
 )
@@ -373,6 +371,42 @@ you should place your code here."
    (quote
     ("%latex -shell-escape -interaction nonstopmode -output-directory %o %f" "%latex -shell-escape -interaction nonstopmode -output-directory %o %f" "%latex -shell-escape -interaction nonstopmode -output-directory %o %f")))
  '(org-log-done-with-time t)
+ '(org-structure-template-alist
+   (quote
+    (("im" "\\( ? \\)")
+     ("m" "\\[ ? \\]")
+     ("s" "#+BEGIN_SRC ?
+
+#+END_SRC")
+     ("e" "#+BEGIN_EXAMPLE
+?
+#+END_EXAMPLE")
+     ("q" "#+BEGIN_QUOTE
+?
+#+END_QUOTE")
+     ("v" "#+BEGIN_VERSE
+?
+#+END_VERSE")
+     ("V" "#+BEGIN_VERBATIM
+?
+#+END_VERBATIM")
+     ("c" "#+BEGIN_CENTER
+?
+#+END_CENTER")
+     ("l" "#+BEGIN_EXPORT latex
+?
+#+END_EXPORT")
+     ("L" "#+LaTeX: ")
+     ("h" "#+BEGIN_EXPORT html
+?
+#+END_EXPORT")
+     ("H" "#+HTML: ")
+     ("a" "#+BEGIN_EXPORT ascii
+?
+#+END_EXPORT")
+     ("A" "#+ASCII: ")
+     ("i" "#+INDEX: ?")
+     ("I" "#+INCLUDE: %file ?"))))
  '(org-todo-keywords (quote ((sequence "TODO" "BUY" "|" "DONE" "BOUGHT"))))
  '(package-selected-packages
    (quote

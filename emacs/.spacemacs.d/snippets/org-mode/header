@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header_
+# --
+#+TITLE:$1
+#+SUBTITLE:$2
+#+AUTHOR:$3
+#+DATE:$4
+#+OPTIONS: author:t date:t toc:nil num:nil
+#+LATEX_HEADER: \usepackage{parskip}

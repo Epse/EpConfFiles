@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: uheader
+# key: uheader_
+# --
+#+TITLE:$1
+#+SUBTITLE:UGent Campus Kortrijk, Vak $2
+#+AUTHOR:Stef Pletinck
+#+DATE:`(format-time-string "%Y-%m-%d %H:%M")`
+#+OPTIONS: author:t date:t toc:t num:t
+#+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \usepackage{amsfonts}
+#+LATEX_HEADER: \usepackage{amsmath}
