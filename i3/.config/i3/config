@@ -142,6 +142,7 @@
   assign [class="mutt"] $workspace8
   assign [class="Spotify"] $workspace10
   assign [class="KeePass2"] $workspace4
+  assign [class="Emacs"\ $workspace3
 
 # Default to Floating
   for_window [class="Lxappearance"] floating enable
@@ -201,10 +202,11 @@
   exec --no-startup-id compton -f -b --config ~/.config/i3/.compton.conf
   exec i3-msg workspace $workspace1
   exec nohup firefox
+  exec nohup emacs
   exec nm-applet
   #exec autocutsel -fork &
   #exec autocutsel -selection PRIMARY -fork &
-  #exec --no-startup-id blueberry-tray &
+  exec --no-startup-id blueberry-tray &
   exec --no-startup-id pasystray &
   exec /usr/bin/dropbox &
   exec redshift-gtk &

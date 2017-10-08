@@ -1,0 +1,1 @@
+{"docker attach --sig-proxy=false": "Attach to docker which you can exit with C-c and not stop the container"}
