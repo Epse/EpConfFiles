@@ -14,56 +14,57 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 set nocompatible
 
-" Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ryanoasis/vim-devicons'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tyok/ack.vim'
-Bundle 'tyok/nerdtree-ack'
-Plugin 'vim-scripts/OmniCppComplete'
-Bundle 'stephpy/vim-phpdoc'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'stephpy/vim-php-cs-fixer'
-Bundle 'xolox/vim-easytags'
-Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'bling/vim-airline'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'airblade/vim-gitgutter'
-Bundle 'xolox/vim-misc'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-surround'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'jplaut/vim-arduino-ino'
-Plugin 'fatih/vim-go'
-"Plugin 'Shougo/neocomplete.vim'
-Plugin 'xolox/vim-shell'
-Plugin 'majutsushi/tagbar'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'skammer/vim-css-color'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-haml'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-
-call vundle#end()
+" I disabled this. I don't need this anymore
+"" Vundle
+"filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'ryanoasis/vim-devicons'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'tyok/ack.vim'
+"Bundle 'tyok/nerdtree-ack'
+"Plugin 'vim-scripts/OmniCppComplete'
+"Bundle 'stephpy/vim-phpdoc'
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'stephpy/vim-php-cs-fixer'
+"Bundle 'xolox/vim-easytags'
+"Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'kien/rainbow_parentheses.vim'
+"Bundle 'bling/vim-airline'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'airblade/vim-gitgutter'
+"Bundle 'xolox/vim-misc'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'tpope/vim-surround'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+""Plugin 'garbas/vim-snipmate'
+"Plugin 'honza/vim-snippets'
+"Plugin 'jplaut/vim-arduino-ino'
+"Plugin 'fatih/vim-go'
+""Plugin 'Shougo/neocomplete.vim'
+"Plugin 'xolox/vim-shell'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'StanAngeloff/php.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/webapi-vim'
+"Plugin 'Raimondi/delimitMate'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'marijnh/tern_for_vim'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'skammer/vim-css-color'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'sheerun/vim-polyglot'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'tpope/vim-haml'
+"Plugin 'vim-ruby/vim-ruby'
+"Plugin 'tpope/vim-rails'
+"
+"call vundle#end()
 filetype plugin indent on
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
@@ -166,12 +167,12 @@ abbr #e  ***********************************************************************
 abbr #l *************************************************************************
 abbr ehk Engaqhelekanga
 
-" If no file specified, nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"" If no file specified, nerdtree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"map <C-n> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino

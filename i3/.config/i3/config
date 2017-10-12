@@ -143,6 +143,7 @@
   assign [class="Spotify"] $workspace10
   assign [class="KeePass2"] $workspace4
   assign [class="Emacs"] $workspace3
+  assign [class="Enpass-Desktop"] $workspace4
 
 # Default to Floating
   for_window [class="Lxappearance"] floating enable
@@ -172,9 +173,9 @@
   }
 
 	# Pulse Audio controls
-	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5% #increase sound volume
-	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5% #decrease sound volume
-	bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list short sinks|grep RUNNING|awk '{print $1}') toggle # mute sound
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5% , exec pactl set-sink-volume 0 +5% #increase sound volume
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5% , exec pactl set-sink-volume 0 -5% #decrease sound volume
+	bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list short sinks|grep RUNNING|awk '{print $1}') toggle , exec pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
   bindsym XF86AudioPlay exec playerctl play-pause
@@ -195,7 +196,8 @@
   #  --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
 # Keyboard
-  exec_always setxkbmap -option "ctrl:swapcaps"
+  exec_always setxkbmap -layout be -option "ctrl:swapcaps"
+  #exec_always setxkbmap -option "ctrl:swapcaps"
   #exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   #exec_always xcape -e 'Control_L=Escape'
 
@@ -203,10 +205,11 @@
   exec i3-msg workspace $workspace1
   exec nohup firefox
   exec nohup emacs
+  exec nohup enpass
   exec nm-applet
   #exec autocutsel -fork &
   #exec autocutsel -selection PRIMARY -fork &
-  exec --no-startup-id blueberry-tray &
+  exec --no-startup-id blueman-applet &
   exec --no-startup-id pasystray &
   exec /usr/bin/dropbox &
   exec redshift-gtk &
