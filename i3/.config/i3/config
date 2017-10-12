@@ -185,6 +185,8 @@
 ## Screen brightness controls
   bindsym XF86MonBrightnessUp exec sudo /bin/bash $HOME/.scripts/brightness +10
   bindsym XF86MonBrightnessDown exec sudo /bin/bash $HOME/.scripts/brightness -10
+  bindsym $mod+F5 exec sudo xbacklight -dec 10
+  bindsym $mod+F6 exec sudo xbacklight -inc 10
 
 # Startup
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
