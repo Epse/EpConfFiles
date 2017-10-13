@@ -2,4 +2,4 @@
 # name: frac
 # key: \f
 # --
-\frac{$1}{$2}
+\frac{ $1 }{ $2 }
