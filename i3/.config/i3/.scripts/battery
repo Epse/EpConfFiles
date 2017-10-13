@@ -19,12 +19,13 @@ use utf8;
 my $acpi;
 my $status;
 my $percent;
+my $percent1;
+my $percent2;
 my $full_text;
 my $short_text;
-my $bat_number = $ENV{BLOCK_INSTANCE} || 0;
 
 # read the first line of the "acpi" command output
-open (ACPI, "acpi -b | grep 'Battery $bat_number' |") or die;
+open (ACPI, "acpi -b | grep 'Battery 0' |") or die;
 $acpi = <ACPI>;
 close(ACPI);
 
@@ -34,7 +35,20 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 }
 
 $status = $1;
-$percent = $2;
+$percent1 = $2;
+#
+# read the first line of the "acpi" command output
+open (ACPI, "acpi -b | grep 'Battery 1' |") or die;
+$acpi = <ACPI>;
+close(ACPI);
+
+# fail on unexpected output
+if ($acpi !~ /: (\w+), (\d+)%/) {
+	die "$acpi\n";
+}
+
+$percent2 = $2;
+$percent = ($percent1+$percent2)/2;
 $full_text = "$percent%";
 
 if ($status eq 'Discharging') {
