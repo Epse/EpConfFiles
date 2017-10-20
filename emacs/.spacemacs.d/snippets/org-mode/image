@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: image
+# key: img_
+# --
+#+ATTR_ORG: :width 300
+#+ATTR_LATEX: :width 5cm
+#+CAPTION: $2
+[[file:$1]]
