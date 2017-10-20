@@ -188,6 +188,9 @@
   bindsym $mod+F5 exec sudo xbacklight -dec 10
   bindsym $mod+F6 exec sudo xbacklight -inc 10
 
+# Printscreen
+  bindsym --release Print exec import ~/Pictures/ss.png
+
 # Startup
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
   #exec_always --no-startup-id ~/.config/i3/.scripts/start_jack.sh
