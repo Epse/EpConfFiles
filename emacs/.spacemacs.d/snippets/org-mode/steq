@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: steq
+# key: steq_
+# --
+\begin{equation}
+\begin{cases}
+
+$1
+
+\end{cases}
+\end{equation}
