@@ -179,8 +179,11 @@
 
 # Media player controls
   bindsym XF86AudioPlay exec playerctl play-pause
+  bindsym $mod+c exec playerctl play-pause
   bindsym XF86AudioNext exec playerctl next
+  bindsym $mod+n exec playerctl next
   bindsym XF86AudioPrev exec playerctl previous
+  bindsym $mod+b exec playerctl previous
 
 ## Screen brightness controls
   bindsym XF86MonBrightnessUp exec sudo /bin/bash $HOME/.scripts/brightness +10
@@ -208,7 +211,7 @@
 
   exec --no-startup-id compton -f -b --config ~/.config/i3/.compton.conf
   exec i3-msg workspace $workspace1
-  exec nohup firefox
+  exec nohup firefox-developer
   exec nohup emacs
   exec nohup enpass
   exec nm-applet
