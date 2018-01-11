@@ -3,14 +3,15 @@
 
 # Constants
   set $base00 #272822
-  set $base01 #383830
+  set $base01 #292B2E
   set $base02 #49483e
   set $base03 #75715e
   set $base04 #a59f85
   set $base05 #f8f8f2
   set $base06 #f5f4f1
-  set $base07 #f9f8f5
-  set $base08 #f92672
+  #set $base07 #f9f8f5
+  set $base07 #cbc1d5
+  set $base08 #e0211d
   set $base09 #fd971f
   set $base0A #f4bf75
   set $base0B #a6e22e
@@ -19,7 +20,7 @@
   set $base0E #ae81ff
   set $base0F #cc6633
 #  set $border #a59f85
-  set $border #f99157
+  set $border #5d4d7a
 
   set $monitor1 "DVI-I-1"
   set $monitor2 "HDMI-0"
@@ -32,7 +33,7 @@
   client.urgent           $base02 $base08    $base00 $base0F
 
 # General Configuration
-  font pango:System Knack Nerd Font 10
+  font pango:System Fira Code 10
   floating_modifier $mod
   hide_edge_borders both
   new_window pixel 2px
@@ -41,18 +42,19 @@
   bindsym $mod+v split vertical
   bindsym $mod+h split horizontal
 # Program Settings
-  bindsym $mod+Return exec termite
-  bindsym $mod+d exec dmenu_run
+  bindsym $mod+Return exec urxvt
+  bindsym $mod+d exec rofi -show drun
+  bindsym $mod+w exec rofi -show window
+  bindsym $mod+s exec rofi -show ssh
   bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
-  bindsym $mod+Shift+s exec scrot -s ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png
 # exit i3 (logs you out of your X session)
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # Restart-Related Bindings
   bindsym $mod+Shift+c reload
   bindsym $mod+Shift+r restart
 # change container layout
-  bindsym $mod+s layout stacking
-  bindsym $mod+w layout tabbed
+  bindsym $mod+Shift+s layout stacking
+  bindsym $mod+Shift+w layout tabbed
   bindsym $mod+e layout toggle split
 
 # Window-Navigation Bindings
@@ -157,7 +159,7 @@
 
 # i3 Status Bar
   bar {
-    font pango: SauceCodePro Nerd Font 8
+    font pango: Fira Code 8
       position bottom
       status_command i3blocks -c ~/.config/i3/.i3blocks.conf
       colors {
@@ -175,7 +177,7 @@
 	# Pulse Audio controls
 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5% , exec pactl set-sink-volume 0 +5% #increase sound volume
 	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5% , exec pactl set-sink-volume 0 -5% #decrease sound volume
-	bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list short sinks|grep RUNNING|awk '{print $1}') toggle , exec pactl set-sink-mute 0 toggle # mute sound
+	bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
   bindsym XF86AudioPlay exec playerctl play-pause
@@ -186,8 +188,8 @@
   bindsym $mod+b exec playerctl previous
 
 ## Screen brightness controls
-  bindsym XF86MonBrightnessUp exec sudo /bin/bash $HOME/.scripts/brightness +10
-  bindsym XF86MonBrightnessDown exec sudo /bin/bash $HOME/.scripts/brightness -10
+  bindsym XF86MonBrightnessUp exec sudo /bin/bash $HOME/.scripts/brightness +5
+  bindsym XF86MonBrightnessDown exec sudo /bin/bash $HOME/.scripts/brightness -5
   bindsym $mod+F5 exec sudo xbacklight -dec 10
   bindsym $mod+F6 exec sudo xbacklight -inc 10
 
@@ -211,13 +213,16 @@
 
   exec --no-startup-id compton -f -b --config ~/.config/i3/.compton.conf
   exec i3-msg workspace $workspace1
-  exec nohup firefox-developer
+  exec nohup firefox-developer-edition
   exec nohup emacs
   exec nohup enpass
   exec nm-applet
-  #exec autocutsel -fork &
-  #exec autocutsel -selection PRIMARY -fork &
+  exec autocutsel -fork &
+  exec autocutsel -selection PRIMARY -fork &
   exec --no-startup-id blueman-applet &
   exec --no-startup-id pasystray &
+  exec --no-startup-id udiskie --smart-tray &
   exec /usr/bin/dropbox &
   exec redshift-gtk &
+  exec xinput --set-prop 13 'libinput Accel Speed' -0.5
+  exec --no-startup-id autokey-gtk &
