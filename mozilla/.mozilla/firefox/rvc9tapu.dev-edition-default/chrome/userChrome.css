@@ -1,0 +1,76 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#main-window {
+    background: #292B2E !important;
+}
+
+#main-window:-moz-window-inactive {
+    background: #292B2E !important;
+}
+
+#tabbrowser-tabs {
+    background: #292B2E !important;
+}
+
+#TabsToolbar {
+    background: #292B2E !important;
+}
+
+#tabbrowser-tabs .tab-background[selected=true] {
+    border-top-color: #c56ec3 !important;
+}
+
+.tabbrowser-tab .tab-line {
+    background-color: #c56ec3 !important;
+}
+
+#appMenu-popup * {
+    background-color: #292B2E !important;
+}
+
+.subviewbutton:hover {
+    color: #c56ec3 !important;
+}
+
+#urlbar[focused=true] {
+    border-color: #c56ec3 !important;
+}
+
+.panel-arrow {
+    display: none !important;
+}
+
+panel, .panel, panelview, .panel-arrowbox, .panel-arrowcontent {
+    background: #292B2E !important;
+}
+
+panel *:hover {
+    background: #292B2E !important;
+}
+
+#pocket-button-box {
+    display: none !important;
+}
+
+#sidebar-box {
+    background: #292B2E !important;
+}
+
+/*.textbox-input-box {
+    /* If you look closely, you will see that there is a blueish border in the text box
+    I hate that 
+    background: rgb(71,71, 73) !important;
+}*/
+
+/* This is for the suggestions */
+richlistitem:hover {
+    background: #292B2E !important;
+    color: #c56ec3 !important;
+}
+
+/* I know this is ugly AF 
+It just doesn't work any other way*/
+*[starred] {
+    fill: #c56ec3 !important;
+    
+}
