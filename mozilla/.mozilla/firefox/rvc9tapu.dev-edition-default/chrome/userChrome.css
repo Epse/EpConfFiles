@@ -1,5 +1,41 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+:root {
+    --tab-loading-fill: #c56ec3 !important;
+}
+
+:root:-moz-lwtheme-brighttext {
+    --chrome-background-color: #292B2E !important;
+    --chrome-color: rgb(249, 249, 250);
+    --chrome-secondary-background-color: hsl(240, 1%, 20%);
+    --toolbox-border-bottom-color: hsla(240, 5%, 5%, .1);
+    --chrome-nav-bar-separator-color: rgba(0,0,0,.2);
+    --chrome-nav-buttons-background: hsla(240, 5%, 5%, .1);
+    --chrome-nav-buttons-hover-background: hsla(240, 5%, 5%, .15);
+    --chrome-nav-bar-controls-border-color: hsla(240, 5%, 5%, .3);
+    --chrome-selection-color: #fff;
+    --chrome-selection-background-color: #c56ec3 !important;
+    --url-and-searchbar-background-color: rgb(71, 71, 73);
+    --url-and-searchbar-color: var(--chrome-color);
+    --urlbar-separator-color: #5F6670;
+}
+
+:root:-moz-lwtheme-brighttext,
+toolbar[brighttext] {
+  --toolbarbutton-hover-background: rgba(71,71, 73, .4) !important;
+  --toolbarbutton-active-background: rgba(71,71, 73, .4) !important;
+
+  --backbutton-background: transparent !important;
+  --backbutton-hover-background: rgba(71,71, 73, .4) !important;
+  --backbutton-active-background: rgba(71,71, 73, .4) !important;
+}
+
+toolbar[brighttext] {
+
+    --toolbarbutton-icon-fill-attention: #c56ec3 !important;
+
+}
+
 #main-window {
     background: #292B2E !important;
 }
@@ -63,9 +99,23 @@ panel *:hover {
 }*/
 
 /* This is for the suggestions */
-richlistitem:hover {
+richlistitem {
+    background: #292B2E !important;
+}
+
+richlistitem:hover, richlistitem[selected], richlistitem[current] {
     background: #292B2E !important;
     color: #c56ec3 !important;
+}
+
+.search-one-offs, .search-one-offs * {
+    background: #292B2E !important;
+}
+
+.search-one-offs *:hover {
+    background: rgba(7&,7&,73,.4) !important;
+    color: #c56ec3 !important;
+    fill: #c56ec3 !important;
 }
 
 /* I know this is ugly AF 
@@ -73,4 +123,22 @@ It just doesn't work any other way*/
 *[starred] {
     fill: #c56ec3 !important;
     
+}
+
+image[role=button], .urlbar-page-action,
+.urlbar-history-dropmarker,
+.subviewbutton, .subviewbutton-nav, .subviewbutton-iconic,
+.toolbarbutton-1 {
+    background: transparent !important;
+    color: rgb(249,249,250) !important;
+    fill: rgb(249,249,250) !important;
+}
+
+image[role=button]:hover, .urlbar-page-action:hover,
+.urlbar-history-dropmarker:hover,
+.subviewbutton:hover, .subviewbutton-nav:hover, .subviewbutton-iconic:hover,
+.toolbarbutton-1:hover {
+    color: #c56ec3 !important;
+    fill: #c56ec3 !important;
+    background: rgba(71,71,73,.4) !important;
 }

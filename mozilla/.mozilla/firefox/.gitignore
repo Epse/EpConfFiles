@@ -1,10 +1,12 @@
 */SiteSecurityServiceState.txt
 */browser-extension-data/
+*/chrome_debugger_profile/
 */cookies.*
 */datareporting/
 */favicons.*
 */places.*
 */sessionrestore/
+*/sessionrestore-backups/
 */addonStartup.json.lz4
 */AlternateServices.txt
 */crashes/
