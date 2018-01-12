@@ -23,7 +23,7 @@ URxvt.color10:      base0B
 URxvt.color3:       base0A
 URxvt.color11:      base0A
 ! Blue
-#define base0D #66d9ef
+#define base0D #4f97d7
 URxvt.color4:       base0D
 URxvt.color12:      base0D
 ! Magenta
