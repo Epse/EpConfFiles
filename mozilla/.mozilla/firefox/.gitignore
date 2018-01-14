@@ -7,6 +7,7 @@
 */places.*
 */sessionrestore/
 */sessionrestore-backups/
+*/sessionstore-backups/
 */addonStartup.json.lz4
 */AlternateServices.txt
 */crashes/
@@ -22,6 +23,8 @@
 */storage.sqlite
 */storage-sync.sqlite
 */Telemetry-ShutdownTime.txt
+*/Telemetry.ShutdownTime.txt
+*/lock
 */times.json
 */webappsstore.*
 */weave/
