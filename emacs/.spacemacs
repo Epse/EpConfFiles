@@ -59,7 +59,6 @@ values."
      spell-checking
      syntax-checking
      version-control
-     themes-megapack
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -319,40 +318,50 @@ you should place your code here."
 
   ;; This is a ugly hack to fix an issue in latest spacemacs
   (require 'helm-bookmark)
-
-  (require 'org)
-  (require 'ob-python)
-  (require 'ob-clojure)
-  (require 'ob-perl)
-  (require 'ob-dot)
-  ;; Apparently, this doesn't exist anymore
-  ;;(require 'ob-go)
-  (require 'ob-R)
-  (require 'ob-gnuplot)
-  (require 'ob-lisp)
-  (require 'ob-org)
-  (require 'ob-screen)
-  (require 'ob-calc)
-  (require 'ob-js)
-  (require 'ob-latex)
-  (require 'ob-plantuml)
-  (require 'ob-sh)
-  (require 'ob-ditaa)
-  (require 'ob-awk)
-  (require 'ob-octave)
-  (require 'ob-sed)
-  (require 'ob-sql)
-  (require 'ob-sqlite)
-  (require 'ox-latex)
+  (eval-after-load 'org
+    (lambda()
+      (require 'ess-site)
+      (require 'ob-emacs-lisp)
+      (require 'ob-latex)
+      (require 'octave)
+      (require 'ob-python)
+      (require 'ob-sql)
+      (require 'ob-shell)
+      (require 'ob-sqlite)
+      (require 'ob-julia)
+      (require 'ob-perl)
+      (require 'ob-org)
+      (require 'ob-sed)
+      (require 'ob-css)
+      (require 'ob-js)
+      (require 'ob-clojure)
+      (require 'ob-dot)
+      (require 'ob-go)
+      (require 'ob-lisp)
+      (require 'ob-calc)
+      (require 'ob-js)
+      (require 'ob-sh)
+      (require 'ob-ditaa)
+      (require 'ob-awk)
+      (setq org-export-babel-evaluate nil)
+      (setq org-startup-indented t)
+      ;; increase imenu depth to include third level headings
+      (setq org-imenu-depth 3)
+      ;; Set sensible mode for editing dot files
+      (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
+      ;; Update images from babel code blocks automatically
+      (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+      (setq org-src-fontify-natively t)
+      (setq org-src-tab-acts-natively t)
+      (setq org-confirm-babel-evaluate nil)
+      (defun delete-minted ()
+        (delete-file ("./_minted*")))
+      (advice-add 'org-latex-compile :after #'delete-minted)
+      (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
+      ))
 
   (require 'iso-transl)
 
-  (defun delete-minted ()
-    (delete-file ("./_minted*")))
-
- (advice-add 'org-latex-compile :after #'delete-minted)
-
- (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
