@@ -147,7 +147,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 16
                                :weight normal
                                :width normal
@@ -318,9 +318,11 @@ you should place your code here."
 
   ;; This is a ugly hack to fix an issue in latest spacemacs
   (require 'helm-bookmark)
+  (defun delete-minted (name &optional snippet)
+    (delete-directory (car(file-expand-wildcards "./_minted-*")) "true")
+  )
   (eval-after-load 'org
     (lambda()
-      (require 'ess-site)
       (require 'ob-emacs-lisp)
       (require 'ob-latex)
       (require 'octave)
@@ -328,7 +330,6 @@ you should place your code here."
       (require 'ob-sql)
       (require 'ob-shell)
       (require 'ob-sqlite)
-      (require 'ob-julia)
       (require 'ob-perl)
       (require 'ob-org)
       (require 'ob-sed)
@@ -336,7 +337,7 @@ you should place your code here."
       (require 'ob-js)
       (require 'ob-clojure)
       (require 'ob-dot)
-      (require 'ob-go)
+      ;(require 'ob-go)
       (require 'ob-lisp)
       (require 'ob-calc)
       (require 'ob-js)
@@ -354,8 +355,6 @@ you should place your code here."
       (setq org-src-fontify-natively t)
       (setq org-src-tab-acts-natively t)
       (setq org-confirm-babel-evaluate nil)
-      (defun delete-minted ()
-        (delete-file ("./_minted*")))
       (advice-add 'org-latex-compile :after #'delete-minted)
       (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
       ))
