@@ -57,7 +57,7 @@ URxvt.color19:      base02
 urxvt*depth: 32
 urxvt*background: rgb:29/2b/2e
 
-URxvt.font: xft:Fira Code:size=9,\
+URxvt.font: xft:Source Code Pro:size=9,\
             xft:Noto Sans Mono:size=9,\
             xft:Noto Emoji:size=9,\
             xft:Unifont:size=9

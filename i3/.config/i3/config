@@ -33,7 +33,7 @@
   client.urgent           $base02 $base08    $base00 $base0F
 
 # General Configuration
-  font pango:System Fira Code 10
+  font pango:System Source Code Pro 10
   floating_modifier $mod
   hide_edge_borders both
   new_window pixel 2px
@@ -159,7 +159,7 @@
 
 # i3 Status Bar
   bar {
-    font pango: Fira Code 8
+    font pango: Source Code Pro 8
       position bottom
       status_command i3blocks -c ~/.config/i3/.i3blocks.conf
       colors {
