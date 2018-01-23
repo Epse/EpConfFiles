@@ -83,3 +83,7 @@ alias x=exit
 alias dirs='dirs -v'
 eval $(keychain --agents ssh --eval --quiet id_rsa)
 eval $(thefuck --alias)
+
+function prettyjson () {
+  python -m json.tool < $1
+}
