@@ -4,5 +4,4 @@
 # Except for
 !*/blocklists
 !*/blocklist.xml
-!*/chrome/userChrome.css
-!*/chrome/userContent.css
+!*/chrome/
