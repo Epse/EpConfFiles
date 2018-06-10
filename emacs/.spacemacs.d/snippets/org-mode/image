@@ -3,6 +3,6 @@
 # key: img_
 # --
 #+ATTR_ORG: :width 300
-#+ATTR_LATEX: :width 5cm
+#+ATTR_LATEX: :width 10cm
 #+CAPTION: $2
 [[file:$1]]

@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: tiaundtim
+# key: tnt_
+# --
+#+TITLE:$1
+#+SUBTITLE:$2
+#+AUTHOR:$3
+#+OPTIONS: author:t date:nil toc:nil num:nil
+#+LATEX_HEADER: \usepackage[dutch]{babel}
+#+LATEX_HEADER: \usepackage{parskip}
+
+* Terrein
+$4
+* Inkleding
+$5
+* Aantal deelnemers
+$6
+* Uitleg
+$7
+* Duur
+$8
+* Taakverdeling
+$9
+* Inclusie
+$10
+* Materiaal
+$11
