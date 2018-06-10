@@ -39,7 +39,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -83,7 +83,11 @@ alias x=exit
 alias dirs='dirs -v'
 eval $(keychain --agents ssh --eval --quiet id_rsa)
 eval $(thefuck --alias)
+alias ls=exa
+alias ll='exa -l --git'
 
 function prettyjson () {
   python -m json.tool < $1
 }
+
+export GNUPGHOME=~/.gnupg/ledger
