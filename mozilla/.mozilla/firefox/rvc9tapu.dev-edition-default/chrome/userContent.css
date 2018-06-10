@@ -1,0 +1,6 @@
+/* Necessary for dark GTK theme */
+input, textarea {
+ -moz-appearance: none !important;
+  background-color: rgb(71,71,73);
+  color: #eee;
+}
