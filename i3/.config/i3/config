@@ -22,8 +22,8 @@
 #  set $border #a59f85
   set $border #5d4d7a
 
-  set $monitor1 "DVI-I-1"
-  set $monitor2 "HDMI-0"
+  set $monitor1 "eDP1"
+  set $monitor2 "HDMI2"
 
 # Widow Colours
 #                         border  background text    indicator
@@ -47,6 +47,7 @@
   bindsym $mod+w exec rofi -show window
   bindsym $mod+s exec rofi -show ssh
   bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
+  bindsym $mod+Shift+f exec ranger
 # exit i3 (logs you out of your X session)
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # Restart-Related Bindings
@@ -71,6 +72,10 @@
   bindsym $mod+Shift+space floating toggle
   bindsym $mod+f fullscreen toggle
   bindsym $mod+space focus mode_toggle
+  bindsym --whole-window $mod+Button6 workspace next
+  bindsym --whole-window $mod+Button7 workspace prev
+  bindsym --whole-window Control_L+Alt_L+Tab workspace back_and_forth
+  bindsym $mod+Tab workspace back_and_forth
 
 # Resizing Controls
   bindsym $mod+r mode "  "
@@ -83,16 +88,6 @@
   }
 
 # Workspace-Related Bindings
- #set $workspace1 "1: "
- #set $workspace2 "2: "
- #set $workspace3 "3: "
- #set $workspace4 "4: "
- #set $workspace5 "5: "
- #set $workspace6 "6: "
- #set $workspace7 "7: "
- #set $workspace8 "8: "
- #set $workspace9 "9: "
- #set $workspace10 "10: "
  set $workspace1 "1: Browser"
  set $workspace2 "2: Terminal"
  set $workspace3 "3: Develop"
@@ -131,11 +126,11 @@
   workspace $workspace2 output $monitor1
   workspace $workspace3 output $monitor1
   workspace $workspace4 output $monitor1
-  workspace $workspace5 output $monitor1
-  workspace $workspace6 output $monitor1
+  workspace $workspace5 output $monitor2
+  workspace $workspace6 output $monitor2
   workspace $workspace8 output $monitor2
-  workspace $workspace9 output $monitor2
-  workspace $workspace10 output $monitor2
+  workspace $workspace9 output $monitor1
+  workspace $workspace10 output $monitor1
 
 # Program Workspace Assignments
   assign [class="banshee"] $workspace10
@@ -146,6 +141,7 @@
   assign [class="KeePass2"] $workspace4
   assign [class="Emacs"] $workspace3
   assign [class="Enpass-Desktop"] $workspace4
+  assign [class="Bitwarden"] $workspace4
 
 # Default to Floating
   for_window [class="Lxappearance"] floating enable
@@ -178,6 +174,7 @@
 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +2% #increase sound volume
 	bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -2% #decrease sound volume
 	bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+	bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle # mute mic
 
 # Media player controls
   bindsym XF86AudioPlay exec playerctl play-pause
@@ -206,7 +203,7 @@
   #  --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal
 
 # Keyboard
-  exec_always setxkbmap -layout be -option "ctrl:swapcaps"
+  exec_always setxkbmap -device 10 -layout be -option "ctrl:swapcaps"
   #exec_always setxkbmap -option "ctrl:swapcaps"
   #exec_always xmodmap -e "pointer = 1 2 3 5 4 7 6 8 9 10 11 12" # set 'natural' scrolling
   #exec_always xcape -e 'Control_L=Escape'
@@ -215,11 +212,10 @@
   exec i3-msg workspace $workspace1
   exec nohup firefox-developer-edition
   exec nohup emacs
-  exec nohup enpass
   exec nm-applet
   exec autocutsel -fork &
   exec autocutsel -selection PRIMARY -fork &
-  exec --no-startup-id blueman-applet &
+  exec --no-startup-id blueberry-tray &
   exec --no-startup-id pasystray &
   exec --no-startup-id udiskie --smart-tray &
   exec /usr/bin/dropbox &
